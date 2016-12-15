@@ -1,0 +1,10 @@
+# MessageMedia.REST.API.Model.SummaryReport
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Properties** | [**SummaryReportProperties**](SummaryReportProperties.md) |  | [optional] 
+**Data** | [**List&lt;SummaryReportData&gt;**](SummaryReportData.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
