@@ -39,7 +39,7 @@ namespace MessageMedia.REST.API.Api
         /// Check delivery reports
         /// </summary>
         /// <remarks>
-        /// Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Reports</returns>
@@ -49,7 +49,7 @@ namespace MessageMedia.REST.API.Api
         /// Check delivery reports
         /// </summary>
         /// <remarks>
-        /// Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Reports</returns>
@@ -81,7 +81,7 @@ namespace MessageMedia.REST.API.Api
         /// Check delivery reports
         /// </summary>
         /// <remarks>
-        /// Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Reports</returns>
@@ -91,7 +91,7 @@ namespace MessageMedia.REST.API.Api
         /// Check delivery reports
         /// </summary>
         /// <remarks>
-        /// Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Reports)</returns>
@@ -230,7 +230,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Reports</returns>
@@ -241,7 +241,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Reports</returns>
@@ -302,7 +302,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of Reports</returns>
@@ -314,7 +314,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t  been confirmed using the confirm reports endpoint
+        /// Check delivery reports Return up to 100 delivery reports that have been received and haven&#39;t been confirmed using the confirm reports endpoint
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (Reports)</returns>

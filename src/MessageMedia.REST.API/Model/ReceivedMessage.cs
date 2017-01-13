@@ -66,9 +66,9 @@ namespace MessageMedia.REST.API.Model
         }
 
         /// <summary>
-        /// Format of message, SMS or VOICE
+        /// Format of message, SMS or TTS (Text To Speech)
         /// </summary>
-        /// <value>Format of message, SMS or VOICE</value>
+        /// <value>Format of message, SMS or TTS (Text To Speech)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FormatEnum
         {
@@ -80,10 +80,10 @@ namespace MessageMedia.REST.API.Model
             SMS,
             
             /// <summary>
-            /// Enum VOICE for "VOICE"
+            /// Enum TTS for "TTS"
             /// </summary>
-            [EnumMember(Value = "VOICE")]
-            VOICE
+            [EnumMember(Value = "TTS")]
+            TTS
         }
 
         /// <summary>
@@ -93,9 +93,9 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="action", EmitDefaultValue=false)]
         public ActionEnum? Action { get; set; }
         /// <summary>
-        /// Format of message, SMS or VOICE
+        /// Format of message, SMS or TTS (Text To Speech)
         /// </summary>
-        /// <value>Format of message, SMS or VOICE</value>
+        /// <value>Format of message, SMS or TTS (Text To Speech)</value>
         [DataMember(Name="format", EmitDefaultValue=false)]
         public FormatEnum? Format { get; set; }
         /// <summary>
@@ -106,7 +106,7 @@ namespace MessageMedia.REST.API.Model
         /// <param name="Content">Content of the message.</param>
         /// <param name="DestinationAddress">Address this message was delivered to. If this message was received in response to a sent message, this is the source address of the sent message.</param>
         /// <param name="DestinationAddressCountry">Country associated with the destination address.</param>
-        /// <param name="Format">Format of message, SMS or VOICE.</param>
+        /// <param name="Format">Format of message, SMS or TTS (Text To Speech).</param>
         /// <param name="Id">Unique ID for this reply.</param>
         /// <param name="InResponseTo">If this message was received in response to a sent message, this is the ID of the sent message.</param>
         /// <param name="Metadata">If this message was received in response to a sent message, this is the metadata associated with the sent message.</param>

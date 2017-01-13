@@ -39,9 +39,9 @@ namespace MessageMedia.REST.API.Model
     public partial class NewMessage :  IEquatable<NewMessage>
     {
         /// <summary>
-        /// Format of message, SMS or VOICE.
+        /// Format of message, SMS or TTS (Text To Speech).
         /// </summary>
-        /// <value>Format of message, SMS or VOICE.</value>
+        /// <value>Format of message, SMS or TTS (Text To Speech).</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FormatEnum
         {
@@ -53,10 +53,10 @@ namespace MessageMedia.REST.API.Model
             SMS,
             
             /// <summary>
-            /// Enum VOICE for "VOICE"
+            /// Enum TTS for "TTS"
             /// </summary>
-            [EnumMember(Value = "VOICE")]
-            VOICE
+            [EnumMember(Value = "TTS")]
+            TTS
         }
 
         /// <summary>
@@ -87,9 +87,9 @@ namespace MessageMedia.REST.API.Model
         }
 
         /// <summary>
-        /// Format of message, SMS or VOICE.
+        /// Format of message, SMS or TTS (Text To Speech).
         /// </summary>
-        /// <value>Format of message, SMS or VOICE.</value>
+        /// <value>Format of message, SMS or TTS (Text To Speech).</value>
         [DataMember(Name="format", EmitDefaultValue=false)]
         public FormatEnum? Format { get; set; }
         /// <summary>
@@ -105,7 +105,7 @@ namespace MessageMedia.REST.API.Model
         /// <param name="Content">Content of the message.</param>
         /// <param name="DestinationNumber">Destination number of the message.</param>
         /// <param name="DeliveryReport">Request a delivery report for this message (default to false).</param>
-        /// <param name="Format">Format of message, SMS or VOICE..</param>
+        /// <param name="Format">Format of message, SMS or TTS (Text To Speech)..</param>
         /// <param name="MessageExpiryTimestamp">Date time after which the message expires and will not be sent.</param>
         /// <param name="Metadata">Metadata for the message specified as a set of key value pairs, each key can be up to 100 characters long and each value can be up to 256 characters long &#x60;&#x60;&#x60; {    \&quot;myKey\&quot;: \&quot;myValue\&quot;,    \&quot;anotherKey\&quot;: \&quot;anotherValue\&quot; } &#x60;&#x60;&#x60; .</param>
         /// <param name="Scheduled">Scheduled delivery date time of the message.</param>

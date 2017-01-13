@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Check delivery reports
 
-Return up to 100 delivery reports that have been received and haven't  been confirmed using the confirm reports endpoint
+Return up to 100 delivery reports that have been received and haven't been confirmed using the confirm reports endpoint
 
 ### Example
 ```csharp

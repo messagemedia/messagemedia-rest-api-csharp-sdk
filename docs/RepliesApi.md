@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Check replies
 
-Return up to 100 reply messages that have been received and haven't  been confirmed using the confirm replies endpoint
+Return up to 100 reply messages that have been received and haven't been confirmed using the confirm replies endpoint
 
 ### Example
 ```csharp

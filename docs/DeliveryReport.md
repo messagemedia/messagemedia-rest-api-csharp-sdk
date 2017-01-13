@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Account** | **string** | Account associated with this delivery report | [optional] 
 **DestinationAddress** | **string** | Address this delivery report was delivered to. This is the source address of the sent message that this delivery report is in response to | [optional] 
 **DestinationAddressCountry** | **string** | Country associated with the destination address | [optional] 
-**Format** | **string** | Format of message, SMS or VOICE | [optional] 
+**Format** | **string** | Format of message, SMS or TTS (Text To Speech) | [optional] 
 **Id** | **Guid?** | Unique ID for this delivery report | [optional] 
 **InResponseTo** | **Guid?** | Unique ID of the sent message that this delivery report is in response to | [optional] 
 **Metadata** | **Object** | Metadata associated with the sent message | [optional] 
