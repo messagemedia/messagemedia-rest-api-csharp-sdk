@@ -80,8 +80,9 @@ namespace MessageMedia.REST.API.Model
         /// <param name="Metadata">Metadata associated with this message.</param>
         /// <param name="SourceAddress">Address this message was sent from.</param>
         /// <param name="SourceAddressCountry">Country associated with the source address.</param>
+        /// <param name="Units">The total number of calculated SMS units this message cost. 1 SMS unit is defined as 160 GSM characters, or 153 GSM characters for multi-part messages as some characters are used to concatenate the message on the receiving handset. Messages with one or more non-GSM characters will be submitted using UCS-2 encoding. UCS-2 encoding means the message has a maximum of 70 characters per SMS, or 67 characters for multi-part messages..</param>
         /// <param name="Timestamp">Date time at which this message was submitted to the API, refer to the delivered timestamp for the time at which the message was delivered (or failed to be delivered) to the destination address..</param>
-        public SentMessage(string Account = null, string Content = null, DateTime? DeliveredTimestamp = null, bool? DeliveryReport = null, string DestinationAddress = null, string DestinationAddressCountry = null, FormatEnum? Format = null, Guid? Id = null, Guid? InResponseTo = null, Object Metadata = null, string SourceAddress = null, string SourceAddressCountry = null, DateTime? Timestamp = null)
+        public SentMessage(string Account = null, string Content = null, DateTime? DeliveredTimestamp = null, bool? DeliveryReport = null, string DestinationAddress = null, string DestinationAddressCountry = null, FormatEnum? Format = null, Guid? Id = null, Guid? InResponseTo = null, Object Metadata = null, string SourceAddress = null, string SourceAddressCountry = null, int? Units = null, DateTime? Timestamp = null)
         {
             this.Account = Account;
             this.Content = Content;
@@ -95,6 +96,7 @@ namespace MessageMedia.REST.API.Model
             this.Metadata = Metadata;
             this.SourceAddress = SourceAddress;
             this.SourceAddressCountry = SourceAddressCountry;
+            this.Units = Units;
             this.Timestamp = Timestamp;
         }
         
@@ -165,6 +167,12 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="source_address_country", EmitDefaultValue=false)]
         public string SourceAddressCountry { get; set; }
         /// <summary>
+        /// The total number of calculated SMS units this message cost. 1 SMS unit is defined as 160 GSM characters, or 153 GSM characters for multi-part messages as some characters are used to concatenate the message on the receiving handset. Messages with one or more non-GSM characters will be submitted using UCS-2 encoding. UCS-2 encoding means the message has a maximum of 70 characters per SMS, or 67 characters for multi-part messages.
+        /// </summary>
+        /// <value>The total number of calculated SMS units this message cost. 1 SMS unit is defined as 160 GSM characters, or 153 GSM characters for multi-part messages as some characters are used to concatenate the message on the receiving handset. Messages with one or more non-GSM characters will be submitted using UCS-2 encoding. UCS-2 encoding means the message has a maximum of 70 characters per SMS, or 67 characters for multi-part messages.</value>
+        [DataMember(Name="units", EmitDefaultValue=false)]
+        public int? Units { get; set; }
+        /// <summary>
         /// Date time at which this message was submitted to the API, refer to the delivered timestamp for the time at which the message was delivered (or failed to be delivered) to the destination address.
         /// </summary>
         /// <value>Date time at which this message was submitted to the API, refer to the delivered timestamp for the time at which the message was delivered (or failed to be delivered) to the destination address.</value>
@@ -190,6 +198,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
             sb.Append("  SourceAddressCountry: ").Append(SourceAddressCountry).Append("\n");
+            sb.Append("  Units: ").Append(Units).Append("\n");
             sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -288,6 +297,11 @@ namespace MessageMedia.REST.API.Model
                     this.SourceAddressCountry.Equals(other.SourceAddressCountry)
                 ) && 
                 (
+                    this.Units == other.Units ||
+                    this.Units != null &&
+                    this.Units.Equals(other.Units)
+                ) && 
+                (
                     this.Timestamp == other.Timestamp ||
                     this.Timestamp != null &&
                     this.Timestamp.Equals(other.Timestamp)
@@ -329,6 +343,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.SourceAddress.GetHashCode();
                 if (this.SourceAddressCountry != null)
                     hash = hash * 59 + this.SourceAddressCountry.GetHashCode();
+                if (this.Units != null)
+                    hash = hash * 59 + this.Units.GetHashCode();
                 if (this.Timestamp != null)
                     hash = hash * 59 + this.Timestamp.GetHashCode();
                 return hash;

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Metadata** | **Object** | Metadata associated with this message | [optional] 
 **SourceAddress** | **string** | Address this message was sent from | [optional] 
 **SourceAddressCountry** | **string** | Country associated with the source address | [optional] 
+**Units** | **int?** | The total number of calculated SMS units this message cost. 1 SMS unit is defined as 160 GSM characters, or 153 GSM characters for multi-part messages as some characters are used to concatenate the message on the receiving handset. Messages with one or more non-GSM characters will be submitted using UCS-2 encoding. UCS-2 encoding means the message has a maximum of 70 characters per SMS, or 67 characters for multi-part messages. | [optional] 
 **Timestamp** | **DateTime?** | Date time at which this message was submitted to the API, refer to the delivered timestamp for the time at which the message was delivered (or failed to be delivered) to the destination address. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
