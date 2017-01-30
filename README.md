@@ -5,7 +5,7 @@ Australia's Leading Messaging Solutions for Business and Enterprise.
 
 - API version: 1.0.0
 - SDK version: 1.0.0
-- Build date: 2017-01-30T22:41:38.477Z
+- Build date: 2017-01-30T22:58:56.957Z
     For more information, please visit [https://www.messagemedia.com/contact-us](https://www.messagemedia.com/contact-us)
 
 ## Frameworks supported
