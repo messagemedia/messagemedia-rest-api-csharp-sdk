@@ -52,7 +52,8 @@ namespace MessageMedia.REST.API.Model
         /// <param name="StatusCode">StatusCode.</param>
         /// <param name="Status">Status.</param>
         /// <param name="Action">Action.</param>
-        public ReportingDetailPropertiesFilters(string DeliveryReport = null, string DestinationAddressCountry = null, string DestinationAddress = null, string MessageFormat = null, string MetadataKey = null, string MetadataValue = null, string SourceAddressCountry = null, string SourceAddress = null, string StatusCode = null, string Status = null, string Action = null)
+        /// <param name="Accounts">List of accounts that were used to generate this report.</param>
+        public ReportingDetailPropertiesFilters(string DeliveryReport = null, string DestinationAddressCountry = null, string DestinationAddress = null, string MessageFormat = null, string MetadataKey = null, string MetadataValue = null, string SourceAddressCountry = null, string SourceAddress = null, string StatusCode = null, string Status = null, string Action = null, List<string> Accounts = null)
         {
             this.DeliveryReport = DeliveryReport;
             this.DestinationAddressCountry = DestinationAddressCountry;
@@ -65,6 +66,7 @@ namespace MessageMedia.REST.API.Model
             this.StatusCode = StatusCode;
             this.Status = Status;
             this.Action = Action;
+            this.Accounts = Accounts;
         }
         
         /// <summary>
@@ -123,6 +125,12 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="action", EmitDefaultValue=false)]
         public string Action { get; set; }
         /// <summary>
+        /// List of accounts that were used to generate this report
+        /// </summary>
+        /// <value>List of accounts that were used to generate this report</value>
+        [DataMember(Name="accounts", EmitDefaultValue=false)]
+        public List<string> Accounts { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -141,6 +149,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,6 +240,11 @@ namespace MessageMedia.REST.API.Model
                     this.Action == other.Action ||
                     this.Action != null &&
                     this.Action.Equals(other.Action)
+                ) && 
+                (
+                    this.Accounts == other.Accounts ||
+                    this.Accounts != null &&
+                    this.Accounts.SequenceEqual(other.Accounts)
                 );
         }
 
@@ -267,6 +281,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Action != null)
                     hash = hash * 59 + this.Action.GetHashCode();
+                if (this.Accounts != null)
+                    hash = hash * 59 + this.Accounts.GetHashCode();
                 return hash;
             }
         }

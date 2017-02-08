@@ -130,6 +130,22 @@ namespace MessageMedia.REST.API.Test
         }
         
         /// <summary>
+        /// Test GetMetadataKeys
+        /// </summary>
+        [Test]
+        public void GetMetadataKeysTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string messageType = null;
+            //DateTime? startDate = null;
+            //DateTime? endDate = null;
+            //string account = null;
+            //string timezone = null;
+            //var response = instance.GetMetadataKeys(messageType, startDate, endDate, account, timezone);
+            //Assert.IsInstanceOf<MetadataKeysResponse> (response, "response is MetadataKeysResponse");
+        }
+        
+        /// <summary>
         /// Test GetReceivedMessagesDetail
         /// </summary>
         [Test]

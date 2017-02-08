@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetDeliveryReportsDetail**](MessagingReportsApi.md#getdeliveryreportsdetail) | **GET** /reporting/delivery_reports/detail | Returns a list of delivery reports
 [**GetDeliveryReportsSummary**](MessagingReportsApi.md#getdeliveryreportssummary) | **GET** /reporting/delivery_reports/summary | Returns a summarised report of delivery reports
+[**GetMetadataKeys**](MessagingReportsApi.md#getmetadatakeys) | **GET** /reporting/{messageType}/metadata/keys | Returns a list of metadata keys
 [**GetReceivedMessagesDetail**](MessagingReportsApi.md#getreceivedmessagesdetail) | **GET** /reporting/received_messages/detail | Returns a list message received
 [**GetReceivedMessagesSummary**](MessagingReportsApi.md#getreceivedmessagessummary) | **GET** /reporting/received_messages/summary | Returns a summarised report of messages received
 [**GetSentMessagesDetail**](MessagingReportsApi.md#getsentmessagesdetail) | **GET** /reporting/sent_messages/detail | Returns a list of message sent
@@ -194,6 +195,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SummaryReport**](SummaryReport.md)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getmetadatakeys"></a>
+# **GetMetadataKeys**
+> MetadataKeysResponse GetMetadataKeys (string messageType, DateTime? startDate, DateTime? endDate, string account = null, string timezone = null)
+
+Returns a list of metadata keys
+
+Returns a list of all metadata keys used for the specified message type during the specified time. Results are limited to 100 keys.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using MessageMedia.REST.API.Api;
+using MessageMedia.REST.API.Client;
+using MessageMedia.REST.API.Model;
+
+namespace Example
+{
+    public class GetMetadataKeysExample
+    {
+        public void main()
+        {
+            
+            // Configure HTTP basic authorization: basic
+            Configuration.Default.Username = "YOUR_USERNAME";
+            Configuration.Default.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new MessagingReportsApi();
+            var messageType = messageType_example;  // string | Message type. Possible values are sent messages, received messages and delivery receipts.
+            var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
+            var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
+            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var timezone = timezone_example;  // string | The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. 'Australia/Melbourne'. (optional) 
+
+            try
+            {
+                // Returns a list of metadata keys
+                MetadataKeysResponse result = apiInstance.GetMetadataKeys(messageType, startDate, endDate, account, timezone);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MessagingReportsApi.GetMetadataKeys: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **messageType** | **string**| Message type. Possible values are sent messages, received messages and delivery receipts. | 
+ **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
+ **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
+ **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **timezone** | **string**| The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. | [optional] 
+
+### Return type
+
+[**MetadataKeysResponse**](MetadataKeysResponse.md)
 
 ### Authorization
 
