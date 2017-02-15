@@ -6,7 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetDeliveryReportsDetail**](MessagingReportsApi.md#getdeliveryreportsdetail) | **GET** /reporting/delivery_reports/detail | Returns a list of delivery reports
 [**GetDeliveryReportsSummary**](MessagingReportsApi.md#getdeliveryreportssummary) | **GET** /reporting/delivery_reports/summary | Returns a summarised report of delivery reports
-[**GetMetadataKeys**](MessagingReportsApi.md#getmetadatakeys) | **GET** /reporting/{messageType}/metadata/keys | Returns a list of metadata keys
 [**GetReceivedMessagesDetail**](MessagingReportsApi.md#getreceivedmessagesdetail) | **GET** /reporting/received_messages/detail | Returns a list message received
 [**GetReceivedMessagesSummary**](MessagingReportsApi.md#getreceivedmessagessummary) | **GET** /reporting/received_messages/summary | Returns a summarised report of messages received
 [**GetSentMessagesDetail**](MessagingReportsApi.md#getsentmessagesdetail) | **GET** /reporting/sent_messages/detail | Returns a list of message sent
@@ -15,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="getdeliveryreportsdetail"></a>
 # **GetDeliveryReportsDetail**
-> DeliveryReports GetDeliveryReportsDetail (DateTime? endDate, DateTime? startDate, string account = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> DeliveryReports GetDeliveryReportsDetail (DateTime? endDate, DateTime? startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a list of delivery reports
 
@@ -43,7 +42,7 @@ namespace Example
             var apiInstance = new MessagingReportsApi();
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
             var messageFormat = messageFormat_example;  // string | Filter results by message format. (optional) 
@@ -62,7 +61,7 @@ namespace Example
             try
             {
                 // Returns a list of delivery reports
-                DeliveryReports result = apiInstance.GetDeliveryReportsDetail(endDate, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+                DeliveryReports result = apiInstance.GetDeliveryReportsDetail(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -80,7 +79,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 
  **messageFormat** | **string**| Filter results by message format. | [optional] 
@@ -113,7 +112,7 @@ Name | Type | Description  | Notes
 
 <a name="getdeliveryreportssummary"></a>
 # **GetDeliveryReportsSummary**
-> SummaryReport GetDeliveryReportsSummary (DateTime? endDate, string groupBy, DateTime? startDate, string account = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> SummaryReport GetDeliveryReportsSummary (DateTime? endDate, string groupBy, DateTime? startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a summarised report of delivery reports
 
@@ -142,7 +141,7 @@ namespace Example
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var groupBy = groupBy_example;  // string | Field to group results set by
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
             var messageFormat = messageFormat_example;  // string | Filter results by message format. (optional) 
@@ -159,7 +158,7 @@ namespace Example
             try
             {
                 // Returns a summarised report of delivery reports
-                SummaryReport result = apiInstance.GetDeliveryReportsSummary(endDate, groupBy, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+                SummaryReport result = apiInstance.GetDeliveryReportsSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -178,7 +177,7 @@ Name | Type | Description  | Notes
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **groupBy** | **string**| Field to group results set by | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 
  **messageFormat** | **string**| Filter results by message format. | [optional] 
@@ -207,83 +206,9 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getmetadatakeys"></a>
-# **GetMetadataKeys**
-> MetadataKeysResponse GetMetadataKeys (string messageType, DateTime? startDate, DateTime? endDate, string account = null, string timezone = null)
-
-Returns a list of metadata keys
-
-Returns a list of all metadata keys used for the specified message type during the specified time. Results are limited to 100 keys.
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using MessageMedia.REST.API.Api;
-using MessageMedia.REST.API.Client;
-using MessageMedia.REST.API.Model;
-
-namespace Example
-{
-    public class GetMetadataKeysExample
-    {
-        public void main()
-        {
-            
-            // Configure HTTP basic authorization: basic
-            Configuration.Default.Username = "YOUR_USERNAME";
-            Configuration.Default.Password = "YOUR_PASSWORD";
-
-            var apiInstance = new MessagingReportsApi();
-            var messageType = messageType_example;  // string | Message type. Possible values are sent messages, received messages and delivery receipts.
-            var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
-            var timezone = timezone_example;  // string | The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. 'Australia/Melbourne'. (optional) 
-
-            try
-            {
-                // Returns a list of metadata keys
-                MetadataKeysResponse result = apiInstance.GetMetadataKeys(messageType, startDate, endDate, account, timezone);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling MessagingReportsApi.GetMetadataKeys: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **messageType** | **string**| Message type. Possible values are sent messages, received messages and delivery receipts. | 
- **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
- **timezone** | **string**| The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. | [optional] 
-
-### Return type
-
-[**MetadataKeysResponse**](MetadataKeysResponse.md)
-
-### Authorization
-
-[basic](../README.md#basic)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getreceivedmessagesdetail"></a>
 # **GetReceivedMessagesDetail**
-> ReceivedMessages GetReceivedMessagesDetail (DateTime? endDate, DateTime? startDate, string account = null, string action = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> ReceivedMessages GetReceivedMessagesDetail (DateTime? endDate, DateTime? startDate, string accounts = null, string action = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a list message received
 
@@ -311,7 +236,7 @@ namespace Example
             var apiInstance = new MessagingReportsApi();
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var action = action_example;  // string | Filter results by the action that was invoked for this message. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
@@ -329,7 +254,7 @@ namespace Example
             try
             {
                 // Returns a list message received
-                ReceivedMessages result = apiInstance.GetReceivedMessagesDetail(endDate, startDate, account, action, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+                ReceivedMessages result = apiInstance.GetReceivedMessagesDetail(endDate, startDate, accounts, action, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -347,7 +272,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **action** | **string**| Filter results by the action that was invoked for this message. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 
@@ -379,7 +304,7 @@ Name | Type | Description  | Notes
 
 <a name="getreceivedmessagessummary"></a>
 # **GetReceivedMessagesSummary**
-> SummaryReport GetReceivedMessagesSummary (DateTime? endDate, string groupBy, DateTime? startDate, string account = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> SummaryReport GetReceivedMessagesSummary (DateTime? endDate, string groupBy, DateTime? startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a summarised report of messages received
 
@@ -408,7 +333,7 @@ namespace Example
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var groupBy = groupBy_example;  // string | Field to group results set by
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
             var messageFormat = messageFormat_example;  // string | Filter results by message format. (optional) 
@@ -423,7 +348,7 @@ namespace Example
             try
             {
                 // Returns a summarised report of messages received
-                SummaryReport result = apiInstance.GetReceivedMessagesSummary(endDate, groupBy, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+                SummaryReport result = apiInstance.GetReceivedMessagesSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -442,7 +367,7 @@ Name | Type | Description  | Notes
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **groupBy** | **string**| Field to group results set by | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 
  **messageFormat** | **string**| Filter results by message format. | [optional] 
@@ -471,7 +396,7 @@ Name | Type | Description  | Notes
 
 <a name="getsentmessagesdetail"></a>
 # **GetSentMessagesDetail**
-> SentMessages GetSentMessagesDetail (DateTime? endDate, DateTime? startDate, string account = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> SentMessages GetSentMessagesDetail (DateTime? endDate, DateTime? startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a list of message sent
 
@@ -499,7 +424,7 @@ namespace Example
             var apiInstance = new MessagingReportsApi();
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var deliveryReport = true;  // bool? | Filter results by delivery report. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
@@ -519,7 +444,7 @@ namespace Example
             try
             {
                 // Returns a list of message sent
-                SentMessages result = apiInstance.GetSentMessagesDetail(endDate, startDate, account, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+                SentMessages result = apiInstance.GetSentMessagesDetail(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -537,7 +462,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **deliveryReport** | **bool?**| Filter results by delivery report. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 
@@ -571,7 +496,7 @@ Name | Type | Description  | Notes
 
 <a name="getsentmessagessummary"></a>
 # **GetSentMessagesSummary**
-> SummaryReport GetSentMessagesSummary (DateTime? endDate, string groupBy, DateTime? startDate, string account = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+> SummaryReport GetSentMessagesSummary (DateTime? endDate, string groupBy, DateTime? startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
 
 Returns a summarised report of messages sent
 
@@ -600,7 +525,7 @@ namespace Example
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
             var groupBy = groupBy_example;  // string | Field to group results set by
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request.
-            var account = account_example;  // string | Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
+            var accounts = accounts_example;  // string | Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional) 
             var deliveryReport = true;  // bool? | Filter results by delivery report. (optional) 
             var destinationAddressCountry = destinationAddressCountry_example;  // string | Filter results by destination address country. (optional) 
             var destinationAddress = destinationAddress_example;  // string | Filter results by destination address. (optional) 
@@ -617,7 +542,7 @@ namespace Example
             try
             {
                 // Returns a summarised report of messages sent
-                SummaryReport result = apiInstance.GetSentMessagesSummary(endDate, groupBy, startDate, account, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
+                SummaryReport result = apiInstance.GetSentMessagesSummary(endDate, groupBy, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -636,7 +561,7 @@ Name | Type | Description  | Notes
  **endDate** | **DateTime?**| End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
  **groupBy** | **string**| Field to group results set by | 
  **startDate** | **DateTime?**| Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. | 
- **account** | **string**| Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
+ **accounts** | **string**| Filter results by specific accounts. By default results will be returned for the account associated with the authentication credentials and all sub accounts. | [optional] 
  **deliveryReport** | **bool?**| Filter results by delivery report. | [optional] 
  **destinationAddressCountry** | **string**| Filter results by destination address country. | [optional] 
  **destinationAddress** | **string**| Filter results by destination address. | [optional] 

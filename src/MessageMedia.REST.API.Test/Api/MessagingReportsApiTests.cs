@@ -83,7 +83,7 @@ namespace MessageMedia.REST.API.Test
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime? endDate = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
             //string messageFormat = null;
@@ -98,7 +98,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetDeliveryReportsDetail(endDate, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetDeliveryReportsDetail(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<DeliveryReports> (response, "response is DeliveryReports");
         }
         
@@ -112,7 +112,7 @@ namespace MessageMedia.REST.API.Test
             //DateTime? endDate = null;
             //string groupBy = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
             //string messageFormat = null;
@@ -125,24 +125,8 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetDeliveryReportsSummary(endDate, groupBy, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetDeliveryReportsSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SummaryReport> (response, "response is SummaryReport");
-        }
-        
-        /// <summary>
-        /// Test GetMetadataKeys
-        /// </summary>
-        [Test]
-        public void GetMetadataKeysTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string messageType = null;
-            //DateTime? startDate = null;
-            //DateTime? endDate = null;
-            //string account = null;
-            //string timezone = null;
-            //var response = instance.GetMetadataKeys(messageType, startDate, endDate, account, timezone);
-            //Assert.IsInstanceOf<MetadataKeysResponse> (response, "response is MetadataKeysResponse");
         }
         
         /// <summary>
@@ -154,7 +138,7 @@ namespace MessageMedia.REST.API.Test
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime? endDate = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //string action = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -168,7 +152,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetReceivedMessagesDetail(endDate, startDate, account, action, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetReceivedMessagesDetail(endDate, startDate, accounts, action, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<ReceivedMessages> (response, "response is ReceivedMessages");
         }
         
@@ -182,7 +166,7 @@ namespace MessageMedia.REST.API.Test
             //DateTime? endDate = null;
             //string groupBy = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
             //string messageFormat = null;
@@ -193,7 +177,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetReceivedMessagesSummary(endDate, groupBy, startDate, account, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetReceivedMessagesSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SummaryReport> (response, "response is SummaryReport");
         }
         
@@ -206,7 +190,7 @@ namespace MessageMedia.REST.API.Test
             // TODO uncomment below to test the method and replace null with proper value
             //DateTime? endDate = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //bool? deliveryReport = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -222,7 +206,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetSentMessagesDetail(endDate, startDate, account, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetSentMessagesDetail(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SentMessages> (response, "response is SentMessages");
         }
         
@@ -236,7 +220,7 @@ namespace MessageMedia.REST.API.Test
             //DateTime? endDate = null;
             //string groupBy = null;
             //DateTime? startDate = null;
-            //string account = null;
+            //string accounts = null;
             //bool? deliveryReport = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -249,7 +233,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetSentMessagesSummary(endDate, groupBy, startDate, account, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetSentMessagesSummary(endDate, groupBy, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SummaryReport> (response, "response is SummaryReport");
         }
         

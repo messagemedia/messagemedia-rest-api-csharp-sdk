@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageMedia.REST.API", "src\MessageMedia.REST.API\MessageMedia.REST.API.csproj", "{B44EFDAC-EA0C-40B1-88D4-8DB3B3E6FD1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageMedia.REST.API", "src\MessageMedia.REST.API\MessageMedia.REST.API.csproj", "{154FA0E7-2AC2-452D-BBE3-FC55F17AF697}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageMedia.REST.API.Test", "src\MessageMedia.REST.API.Test\MessageMedia.REST.API.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Debug|Any CPU = Debug|Any CPU
 Release|Any CPU = Release|Any CPU
 EndGlobalSection
 GlobalSection(ProjectConfigurationPlatforms) = postSolution
-{B44EFDAC-EA0C-40B1-88D4-8DB3B3E6FD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-{B44EFDAC-EA0C-40B1-88D4-8DB3B3E6FD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-{B44EFDAC-EA0C-40B1-88D4-8DB3B3E6FD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-{B44EFDAC-EA0C-40B1-88D4-8DB3B3E6FD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+{154FA0E7-2AC2-452D-BBE3-FC55F17AF697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+{154FA0E7-2AC2-452D-BBE3-FC55F17AF697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+{154FA0E7-2AC2-452D-BBE3-FC55F17AF697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+{154FA0E7-2AC2-452D-BBE3-FC55F17AF697}.Release|Any CPU.Build.0 = Release|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 {19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
