@@ -85,7 +85,7 @@ limitations under the License.
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\MessageMedia.REST.API\MessageMedia.REST.API.csproj">
-          <Project>{FE00BBEA-C49F-4AF4-8301-F64E0CA87FD5}</Project>
+          <Project>{A5E7BA97-3069-4E91-9650-B9A332986645}</Project>
           <Name>MessageMedia.REST.API</Name>
       </ProjectReference>
   </ItemGroup>
