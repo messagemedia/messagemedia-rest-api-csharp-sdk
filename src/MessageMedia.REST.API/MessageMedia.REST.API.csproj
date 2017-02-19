@@ -23,7 +23,7 @@ limitations under the License.
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A5E7BA97-3069-4E91-9650-B9A332986645}</ProjectGuid>
+    <ProjectGuid>{DEA95C7A-ECC8-4519-BC2D-7E9FED8EDE50}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MessageMedia.REST.API</RootNamespace>
