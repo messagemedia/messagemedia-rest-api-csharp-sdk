@@ -33,15 +33,83 @@ using Newtonsoft.Json.Converters;
 namespace MessageMedia.REST.API.Model
 {
     /// <summary>
-    /// ReportingDetailPropertiesFilters
+    /// AsyncReceivedMessagesDetailRequest
     /// </summary>
     [DataContract]
-    public partial class ReportingDetailPropertiesFilters :  IEquatable<ReportingDetailPropertiesFilters>
+    public partial class AsyncReceivedMessagesDetailRequest :  IEquatable<AsyncReceivedMessagesDetailRequest>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReportingDetailPropertiesFilters" /> class.
+        /// Field to sort results set by
         /// </summary>
-        /// <param name="DeliveryReport">DeliveryReport.</param>
+        /// <value>Field to sort results set by</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SortByEnum
+        {
+            
+            /// <summary>
+            /// Enum ACCOUNT for "ACCOUNT"
+            /// </summary>
+            [EnumMember(Value = "ACCOUNT")]
+            ACCOUNT,
+            
+            /// <summary>
+            /// Enum ACTION for "ACTION"
+            /// </summary>
+            [EnumMember(Value = "ACTION")]
+            ACTION,
+            
+            /// <summary>
+            /// Enum DESTINATIONADDRESS for "DESTINATION_ADDRESS"
+            /// </summary>
+            [EnumMember(Value = "DESTINATION_ADDRESS")]
+            DESTINATIONADDRESS,
+            
+            /// <summary>
+            /// Enum DESTINATIONADDRESSCOUNTRY for "DESTINATION_ADDRESS_COUNTRY"
+            /// </summary>
+            [EnumMember(Value = "DESTINATION_ADDRESS_COUNTRY")]
+            DESTINATIONADDRESSCOUNTRY,
+            
+            /// <summary>
+            /// Enum FORMAT for "FORMAT"
+            /// </summary>
+            [EnumMember(Value = "FORMAT")]
+            FORMAT,
+            
+            /// <summary>
+            /// Enum SOURCEADDRESS for "SOURCE_ADDRESS"
+            /// </summary>
+            [EnumMember(Value = "SOURCE_ADDRESS")]
+            SOURCEADDRESS,
+            
+            /// <summary>
+            /// Enum SOURCEADDRESSCOUNTRY for "SOURCE_ADDRESS_COUNTRY"
+            /// </summary>
+            [EnumMember(Value = "SOURCE_ADDRESS_COUNTRY")]
+            SOURCEADDRESSCOUNTRY,
+            
+            /// <summary>
+            /// Enum TIMESTAMP for "TIMESTAMP"
+            /// </summary>
+            [EnumMember(Value = "TIMESTAMP")]
+            TIMESTAMP
+        }
+
+        /// <summary>
+        /// Field to sort results set by
+        /// </summary>
+        /// <value>Field to sort results set by</value>
+        [DataMember(Name="sort_by", EmitDefaultValue=false)]
+        public SortByEnum? SortBy { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AsyncReceivedMessagesDetailRequest" /> class.
+        /// </summary>
+        /// <param name="StartDate">StartDate.</param>
+        /// <param name="EndDate">EndDate.</param>
+        /// <param name="SortBy">Field to sort results set by.</param>
+        /// <param name="SortDirection">SortDirection.</param>
+        /// <param name="Timezone">Timezone.</param>
+        /// <param name="Accounts">Accounts.</param>
         /// <param name="DestinationAddressCountry">DestinationAddressCountry.</param>
         /// <param name="DestinationAddress">DestinationAddress.</param>
         /// <param name="MessageFormat">MessageFormat.</param>
@@ -49,13 +117,15 @@ namespace MessageMedia.REST.API.Model
         /// <param name="MetadataValue">MetadataValue.</param>
         /// <param name="SourceAddressCountry">SourceAddressCountry.</param>
         /// <param name="SourceAddress">SourceAddress.</param>
-        /// <param name="StatusCode">StatusCode.</param>
-        /// <param name="Status">Status.</param>
         /// <param name="Action">Action.</param>
-        /// <param name="Accounts">List of accounts that were used to generate this report.</param>
-        public ReportingDetailPropertiesFilters(string DeliveryReport = null, string DestinationAddressCountry = null, string DestinationAddress = null, string MessageFormat = null, string MetadataKey = null, string MetadataValue = null, string SourceAddressCountry = null, string SourceAddress = null, string StatusCode = null, string Status = null, string Action = null, List<string> Accounts = null)
+        public AsyncReceivedMessagesDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, ActionBody Action = null)
         {
-            this.DeliveryReport = DeliveryReport;
+            this.StartDate = StartDate;
+            this.EndDate = EndDate;
+            this.SortBy = SortBy;
+            this.SortDirection = SortDirection;
+            this.Timezone = Timezone;
+            this.Accounts = Accounts;
             this.DestinationAddressCountry = DestinationAddressCountry;
             this.DestinationAddress = DestinationAddress;
             this.MessageFormat = MessageFormat;
@@ -63,73 +133,74 @@ namespace MessageMedia.REST.API.Model
             this.MetadataValue = MetadataValue;
             this.SourceAddressCountry = SourceAddressCountry;
             this.SourceAddress = SourceAddress;
-            this.StatusCode = StatusCode;
-            this.Status = Status;
             this.Action = Action;
-            this.Accounts = Accounts;
         }
         
         /// <summary>
-        /// Gets or Sets DeliveryReport
+        /// Gets or Sets StartDate
         /// </summary>
-        [DataMember(Name="delivery_report", EmitDefaultValue=false)]
-        public string DeliveryReport { get; set; }
+        [DataMember(Name="start_date", EmitDefaultValue=false)]
+        public StartDateBody StartDate { get; set; }
+        /// <summary>
+        /// Gets or Sets EndDate
+        /// </summary>
+        [DataMember(Name="end_date", EmitDefaultValue=false)]
+        public EndDateBody EndDate { get; set; }
+        /// <summary>
+        /// Gets or Sets SortDirection
+        /// </summary>
+        [DataMember(Name="sort_direction", EmitDefaultValue=false)]
+        public SortDirectionBody SortDirection { get; set; }
+        /// <summary>
+        /// Gets or Sets Timezone
+        /// </summary>
+        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        public TimezoneBody Timezone { get; set; }
+        /// <summary>
+        /// Gets or Sets Accounts
+        /// </summary>
+        [DataMember(Name="accounts", EmitDefaultValue=false)]
+        public AccountsBody Accounts { get; set; }
         /// <summary>
         /// Gets or Sets DestinationAddressCountry
         /// </summary>
         [DataMember(Name="destination_address_country", EmitDefaultValue=false)]
-        public string DestinationAddressCountry { get; set; }
+        public DestinationAddressCountryBody DestinationAddressCountry { get; set; }
         /// <summary>
         /// Gets or Sets DestinationAddress
         /// </summary>
         [DataMember(Name="destination_address", EmitDefaultValue=false)]
-        public string DestinationAddress { get; set; }
+        public DestinationAddressBody DestinationAddress { get; set; }
         /// <summary>
         /// Gets or Sets MessageFormat
         /// </summary>
         [DataMember(Name="message_format", EmitDefaultValue=false)]
-        public string MessageFormat { get; set; }
+        public MessageFormatBody MessageFormat { get; set; }
         /// <summary>
         /// Gets or Sets MetadataKey
         /// </summary>
         [DataMember(Name="metadata_key", EmitDefaultValue=false)]
-        public string MetadataKey { get; set; }
+        public MetadataKeyBody MetadataKey { get; set; }
         /// <summary>
         /// Gets or Sets MetadataValue
         /// </summary>
         [DataMember(Name="metadata_value", EmitDefaultValue=false)]
-        public string MetadataValue { get; set; }
+        public MetadataValueBody MetadataValue { get; set; }
         /// <summary>
         /// Gets or Sets SourceAddressCountry
         /// </summary>
         [DataMember(Name="source_address_country", EmitDefaultValue=false)]
-        public string SourceAddressCountry { get; set; }
+        public SourceAddressCountryBody SourceAddressCountry { get; set; }
         /// <summary>
         /// Gets or Sets SourceAddress
         /// </summary>
         [DataMember(Name="source_address", EmitDefaultValue=false)]
-        public string SourceAddress { get; set; }
-        /// <summary>
-        /// Gets or Sets StatusCode
-        /// </summary>
-        [DataMember(Name="status_code", EmitDefaultValue=false)]
-        public string StatusCode { get; set; }
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public string Status { get; set; }
+        public SourceAddressBody SourceAddress { get; set; }
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
         [DataMember(Name="action", EmitDefaultValue=false)]
-        public string Action { get; set; }
-        /// <summary>
-        /// List of accounts that were used to generate this report
-        /// </summary>
-        /// <value>List of accounts that were used to generate this report</value>
-        [DataMember(Name="accounts", EmitDefaultValue=false)]
-        public List<string> Accounts { get; set; }
+        public ActionBody Action { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -137,8 +208,13 @@ namespace MessageMedia.REST.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ReportingDetailPropertiesFilters {\n");
-            sb.Append("  DeliveryReport: ").Append(DeliveryReport).Append("\n");
+            sb.Append("class AsyncReceivedMessagesDetailRequest {\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  SortBy: ").Append(SortBy).Append("\n");
+            sb.Append("  SortDirection: ").Append(SortDirection).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("  DestinationAddressCountry: ").Append(DestinationAddressCountry).Append("\n");
             sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
             sb.Append("  MessageFormat: ").Append(MessageFormat).Append("\n");
@@ -146,10 +222,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  MetadataValue: ").Append(MetadataValue).Append("\n");
             sb.Append("  SourceAddressCountry: ").Append(SourceAddressCountry).Append("\n");
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
-            sb.Append("  Accounts: ").Append(Accounts).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,15 +244,15 @@ namespace MessageMedia.REST.API.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ReportingDetailPropertiesFilters);
+            return this.Equals(obj as AsyncReceivedMessagesDetailRequest);
         }
 
         /// <summary>
-        /// Returns true if ReportingDetailPropertiesFilters instances are equal
+        /// Returns true if AsyncReceivedMessagesDetailRequest instances are equal
         /// </summary>
-        /// <param name="other">Instance of ReportingDetailPropertiesFilters to be compared</param>
+        /// <param name="other">Instance of AsyncReceivedMessagesDetailRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReportingDetailPropertiesFilters other)
+        public bool Equals(AsyncReceivedMessagesDetailRequest other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -187,9 +260,34 @@ namespace MessageMedia.REST.API.Model
 
             return 
                 (
-                    this.DeliveryReport == other.DeliveryReport ||
-                    this.DeliveryReport != null &&
-                    this.DeliveryReport.Equals(other.DeliveryReport)
+                    this.StartDate == other.StartDate ||
+                    this.StartDate != null &&
+                    this.StartDate.Equals(other.StartDate)
+                ) && 
+                (
+                    this.EndDate == other.EndDate ||
+                    this.EndDate != null &&
+                    this.EndDate.Equals(other.EndDate)
+                ) && 
+                (
+                    this.SortBy == other.SortBy ||
+                    this.SortBy != null &&
+                    this.SortBy.Equals(other.SortBy)
+                ) && 
+                (
+                    this.SortDirection == other.SortDirection ||
+                    this.SortDirection != null &&
+                    this.SortDirection.Equals(other.SortDirection)
+                ) && 
+                (
+                    this.Timezone == other.Timezone ||
+                    this.Timezone != null &&
+                    this.Timezone.Equals(other.Timezone)
+                ) && 
+                (
+                    this.Accounts == other.Accounts ||
+                    this.Accounts != null &&
+                    this.Accounts.Equals(other.Accounts)
                 ) && 
                 (
                     this.DestinationAddressCountry == other.DestinationAddressCountry ||
@@ -227,24 +325,9 @@ namespace MessageMedia.REST.API.Model
                     this.SourceAddress.Equals(other.SourceAddress)
                 ) && 
                 (
-                    this.StatusCode == other.StatusCode ||
-                    this.StatusCode != null &&
-                    this.StatusCode.Equals(other.StatusCode)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
                     this.Action == other.Action ||
                     this.Action != null &&
                     this.Action.Equals(other.Action)
-                ) && 
-                (
-                    this.Accounts == other.Accounts ||
-                    this.Accounts != null &&
-                    this.Accounts.SequenceEqual(other.Accounts)
                 );
         }
 
@@ -259,8 +342,18 @@ namespace MessageMedia.REST.API.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.DeliveryReport != null)
-                    hash = hash * 59 + this.DeliveryReport.GetHashCode();
+                if (this.StartDate != null)
+                    hash = hash * 59 + this.StartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hash = hash * 59 + this.EndDate.GetHashCode();
+                if (this.SortBy != null)
+                    hash = hash * 59 + this.SortBy.GetHashCode();
+                if (this.SortDirection != null)
+                    hash = hash * 59 + this.SortDirection.GetHashCode();
+                if (this.Timezone != null)
+                    hash = hash * 59 + this.Timezone.GetHashCode();
+                if (this.Accounts != null)
+                    hash = hash * 59 + this.Accounts.GetHashCode();
                 if (this.DestinationAddressCountry != null)
                     hash = hash * 59 + this.DestinationAddressCountry.GetHashCode();
                 if (this.DestinationAddress != null)
@@ -275,14 +368,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.SourceAddressCountry.GetHashCode();
                 if (this.SourceAddress != null)
                     hash = hash * 59 + this.SourceAddress.GetHashCode();
-                if (this.StatusCode != null)
-                    hash = hash * 59 + this.StatusCode.GetHashCode();
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Action != null)
                     hash = hash * 59 + this.Action.GetHashCode();
-                if (this.Accounts != null)
-                    hash = hash * 59 + this.Accounts.GetHashCode();
                 return hash;
             }
         }

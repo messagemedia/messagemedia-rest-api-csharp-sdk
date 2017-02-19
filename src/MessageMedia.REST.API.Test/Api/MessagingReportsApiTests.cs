@@ -75,14 +75,49 @@ namespace MessageMedia.REST.API.Test
 
         
         /// <summary>
+        /// Test GetAsyncReportById
+        /// </summary>
+        [Test]
+        public void GetAsyncReportByIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? reportId = null;
+            //var response = instance.GetAsyncReportById(reportId);
+            //Assert.IsInstanceOf<AsyncReport> (response, "response is AsyncReport");
+        }
+        
+        /// <summary>
+        /// Test GetAsyncReportDataById
+        /// </summary>
+        [Test]
+        public void GetAsyncReportDataByIdTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Guid? reportId = null;
+            //var response = instance.GetAsyncReportDataById(reportId);
+            //Assert.IsInstanceOf<System.IO.Stream> (response, "response is System.IO.Stream");
+        }
+        
+        /// <summary>
+        /// Test GetAsyncReports
+        /// </summary>
+        [Test]
+        public void GetAsyncReportsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetAsyncReports();
+            //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
+        }
+        
+        /// <summary>
         /// Test GetDeliveryReportsDetail
         /// </summary>
         [Test]
         public void GetDeliveryReportsDetailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
-            //DateTime? startDate = null;
+            //string endDate = null;
+            //string startDate = null;
             //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -109,9 +144,9 @@ namespace MessageMedia.REST.API.Test
         public void GetDeliveryReportsSummaryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
+            //string endDate = null;
             //string groupBy = null;
-            //DateTime? startDate = null;
+            //string startDate = null;
             //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -130,14 +165,30 @@ namespace MessageMedia.REST.API.Test
         }
         
         /// <summary>
+        /// Test GetMetadataKeys
+        /// </summary>
+        [Test]
+        public void GetMetadataKeysTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string messageType = null;
+            //string startDate = null;
+            //string endDate = null;
+            //string accounts = null;
+            //string timezone = null;
+            //var response = instance.GetMetadataKeys(messageType, startDate, endDate, accounts, timezone);
+            //Assert.IsInstanceOf<MetadataKeysResponse> (response, "response is MetadataKeysResponse");
+        }
+        
+        /// <summary>
         /// Test GetReceivedMessagesDetail
         /// </summary>
         [Test]
         public void GetReceivedMessagesDetailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
-            //DateTime? startDate = null;
+            //string endDate = null;
+            //string startDate = null;
             //string accounts = null;
             //string action = null;
             //string destinationAddressCountry = null;
@@ -163,9 +214,9 @@ namespace MessageMedia.REST.API.Test
         public void GetReceivedMessagesSummaryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
+            //string endDate = null;
             //string groupBy = null;
-            //DateTime? startDate = null;
+            //string startDate = null;
             //string accounts = null;
             //string destinationAddressCountry = null;
             //string destinationAddress = null;
@@ -188,8 +239,8 @@ namespace MessageMedia.REST.API.Test
         public void GetSentMessagesDetailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
-            //DateTime? startDate = null;
+            //string endDate = null;
+            //string startDate = null;
             //string accounts = null;
             //bool? deliveryReport = null;
             //string destinationAddressCountry = null;
@@ -217,9 +268,9 @@ namespace MessageMedia.REST.API.Test
         public void GetSentMessagesSummaryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DateTime? endDate = null;
+            //string endDate = null;
             //string groupBy = null;
-            //DateTime? startDate = null;
+            //string startDate = null;
             //string accounts = null;
             //bool? deliveryReport = null;
             //string destinationAddressCountry = null;
@@ -235,6 +286,78 @@ namespace MessageMedia.REST.API.Test
             //string timezone = null;
             //var response = instance.GetSentMessagesSummary(endDate, groupBy, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SummaryReport> (response, "response is SummaryReport");
+        }
+        
+        /// <summary>
+        /// Test SubmitAsyncDeliveryReportsDetail
+        /// </summary>
+        [Test]
+        public void SubmitAsyncDeliveryReportsDetailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncDeliveryReportDetailRequest asyncDeliveryReportDetailRequest = null;
+            //var response = instance.SubmitAsyncDeliveryReportsDetail(asyncDeliveryReportDetailRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
+        }
+        
+        /// <summary>
+        /// Test SubmitDeliveryReportsSummary
+        /// </summary>
+        [Test]
+        public void SubmitDeliveryReportsSummaryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncDeliveryReportsSummaryRequest asyncDeliveryReportsSummaryRequest = null;
+            //var response = instance.SubmitDeliveryReportsSummary(asyncDeliveryReportsSummaryRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
+        }
+        
+        /// <summary>
+        /// Test SubmitReceivedMessagesDetail
+        /// </summary>
+        [Test]
+        public void SubmitReceivedMessagesDetailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncReceivedMessagesDetailRequest asyncReceivedMessagesDetailRequest = null;
+            //var response = instance.SubmitReceivedMessagesDetail(asyncReceivedMessagesDetailRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
+        }
+        
+        /// <summary>
+        /// Test SubmitReceivedMessagesSummary
+        /// </summary>
+        [Test]
+        public void SubmitReceivedMessagesSummaryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncReceivedMessagesSummaryRequest asyncReceivedMessagesSummaryRequest = null;
+            //var response = instance.SubmitReceivedMessagesSummary(asyncReceivedMessagesSummaryRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
+        }
+        
+        /// <summary>
+        /// Test SubmitSentMessagesDetail
+        /// </summary>
+        [Test]
+        public void SubmitSentMessagesDetailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncSentMessagesDetailRequest asyncSentMessagesDetailRequest = null;
+            //var response = instance.SubmitSentMessagesDetail(asyncSentMessagesDetailRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
+        }
+        
+        /// <summary>
+        /// Test SubmitSentMessagesSummary
+        /// </summary>
+        [Test]
+        public void SubmitSentMessagesSummaryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AsyncDeliverySentMessagesRequest asyncDeliverySentMessagesRequest = null;
+            //var response = instance.SubmitSentMessagesSummary(asyncDeliverySentMessagesRequest);
+            //Assert.IsInstanceOf<AsyncReportResponse> (response, "response is AsyncReportResponse");
         }
         
     }

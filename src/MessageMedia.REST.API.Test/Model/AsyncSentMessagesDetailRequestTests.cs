@@ -34,16 +34,16 @@ using System.Reflection;
 namespace MessageMedia.REST.API.Test
 {
     /// <summary>
-    ///  Class for testing ReportingDetailPropertiesFilters
+    ///  Class for testing AsyncSentMessagesDetailRequest
     /// </summary>
     /// <remarks>
     /// Please update the test case below to test the model.
     /// </remarks>
     [TestFixture]
-    public class ReportingDetailPropertiesFiltersTests
+    public class AsyncSentMessagesDetailRequestTests
     {
-        // TODO uncomment below to declare an instance variable for ReportingDetailPropertiesFilters
-        //private ReportingDetailPropertiesFilters instance;
+        // TODO uncomment below to declare an instance variable for AsyncSentMessagesDetailRequest
+        //private AsyncSentMessagesDetailRequest instance;
 
         /// <summary>
         /// Setup before each test
@@ -51,8 +51,8 @@ namespace MessageMedia.REST.API.Test
         [SetUp]
         public void Init()
         {
-            // TODO uncomment below to create an instance of ReportingDetailPropertiesFilters
-            //instance = new ReportingDetailPropertiesFilters();
+            // TODO uncomment below to create an instance of AsyncSentMessagesDetailRequest
+            //instance = new AsyncSentMessagesDetailRequest();
         }
 
         /// <summary>
@@ -65,22 +65,62 @@ namespace MessageMedia.REST.API.Test
         }
 
         /// <summary>
-        /// Test an instance of ReportingDetailPropertiesFilters
+        /// Test an instance of AsyncSentMessagesDetailRequest
         /// </summary>
         [Test]
-        public void ReportingDetailPropertiesFiltersInstanceTest()
+        public void AsyncSentMessagesDetailRequestInstanceTest()
         {
-            // TODO uncomment below to test "IsInstanceOfType" ReportingDetailPropertiesFilters
-            //Assert.IsInstanceOfType<ReportingDetailPropertiesFilters> (instance, "variable 'instance' is a ReportingDetailPropertiesFilters");
+            // TODO uncomment below to test "IsInstanceOfType" AsyncSentMessagesDetailRequest
+            //Assert.IsInstanceOfType<AsyncSentMessagesDetailRequest> (instance, "variable 'instance' is a AsyncSentMessagesDetailRequest");
         }
 
         /// <summary>
-        /// Test the property 'DeliveryReport'
+        /// Test the property 'StartDate'
         /// </summary>
         [Test]
-        public void DeliveryReportTest()
+        public void StartDateTest()
         {
-            // TODO unit test for the property 'DeliveryReport'
+            // TODO unit test for the property 'StartDate'
+        }
+        /// <summary>
+        /// Test the property 'EndDate'
+        /// </summary>
+        [Test]
+        public void EndDateTest()
+        {
+            // TODO unit test for the property 'EndDate'
+        }
+        /// <summary>
+        /// Test the property 'SortBy'
+        /// </summary>
+        [Test]
+        public void SortByTest()
+        {
+            // TODO unit test for the property 'SortBy'
+        }
+        /// <summary>
+        /// Test the property 'SortDirection'
+        /// </summary>
+        [Test]
+        public void SortDirectionTest()
+        {
+            // TODO unit test for the property 'SortDirection'
+        }
+        /// <summary>
+        /// Test the property 'Timezone'
+        /// </summary>
+        [Test]
+        public void TimezoneTest()
+        {
+            // TODO unit test for the property 'Timezone'
+        }
+        /// <summary>
+        /// Test the property 'Accounts'
+        /// </summary>
+        [Test]
+        public void AccountsTest()
+        {
+            // TODO unit test for the property 'Accounts'
         }
         /// <summary>
         /// Test the property 'DestinationAddressCountry'
@@ -139,14 +179,6 @@ namespace MessageMedia.REST.API.Test
             // TODO unit test for the property 'SourceAddress'
         }
         /// <summary>
-        /// Test the property 'StatusCode'
-        /// </summary>
-        [Test]
-        public void StatusCodeTest()
-        {
-            // TODO unit test for the property 'StatusCode'
-        }
-        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Test]
@@ -155,20 +187,20 @@ namespace MessageMedia.REST.API.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'Action'
+        /// Test the property 'StatusCode'
         /// </summary>
         [Test]
-        public void ActionTest()
+        public void StatusCodeTest()
         {
-            // TODO unit test for the property 'Action'
+            // TODO unit test for the property 'StatusCode'
         }
         /// <summary>
-        /// Test the property 'Accounts'
+        /// Test the property 'DeliveryReport'
         /// </summary>
         [Test]
-        public void AccountsTest()
+        public void DeliveryReportTest()
         {
-            // TODO unit test for the property 'Accounts'
+            // TODO unit test for the property 'DeliveryReport'
         }
 
     }
