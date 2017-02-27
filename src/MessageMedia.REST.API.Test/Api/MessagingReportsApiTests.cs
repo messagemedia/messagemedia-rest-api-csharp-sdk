@@ -105,7 +105,9 @@ namespace MessageMedia.REST.API.Test
         public void GetAsyncReportsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetAsyncReports();
+            //int? page = null;
+            //int? pageSize = null;
+            //var response = instance.GetAsyncReports(page, pageSize);
             //Assert.IsInstanceOf<InlineResponse200> (response, "response is InlineResponse200");
         }
         

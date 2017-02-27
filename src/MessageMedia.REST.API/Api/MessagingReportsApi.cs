@@ -36,10 +36,10 @@ namespace MessageMedia.REST.API.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Lists an asynchronous report.
+        /// Gets a single asynchronous report.
         /// </summary>
         /// <remarks>
-        /// This endpoints lists metadata of a requested asynchronous report.
+        /// This endpoints shows information of a single requested asynchronous report.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -47,10 +47,10 @@ namespace MessageMedia.REST.API.Api
         AsyncReport GetAsyncReportById (Guid? reportId);
 
         /// <summary>
-        /// Lists an asynchronous report.
+        /// Gets a single asynchronous report.
         /// </summary>
         /// <remarks>
-        /// This endpoints lists metadata of a requested asynchronous report.
+        /// This endpoints shows information of a single requested asynchronous report.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -78,24 +78,28 @@ namespace MessageMedia.REST.API.Api
         /// <returns>ApiResponse of System.IO.Stream</returns>
         ApiResponse<System.IO.Stream> GetAsyncReportDataByIdWithHttpInfo (Guid? reportId);
         /// <summary>
-        /// Gets a single asynchronous report.
+        /// Lists asynchronous reports.
         /// </summary>
         /// <remarks>
-        /// This endpoint lists metadata about requested async reports.
+        /// This endpoint lists all the requested asynchronous reports.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>InlineResponse200</returns>
-        InlineResponse200 GetAsyncReports ();
+        InlineResponse200 GetAsyncReports (int? page = null, int? pageSize = null);
 
         /// <summary>
-        /// Gets a single asynchronous report.
+        /// Lists asynchronous reports.
         /// </summary>
         /// <remarks>
-        /// This endpoint lists metadata about requested async reports.
+        /// This endpoint lists all the requested asynchronous reports.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        ApiResponse<InlineResponse200> GetAsyncReportsWithHttpInfo ();
+        ApiResponse<InlineResponse200> GetAsyncReportsWithHttpInfo (int? page = null, int? pageSize = null);
         /// <summary>
         /// Returns a list of delivery reports
         /// </summary>
@@ -562,10 +566,10 @@ namespace MessageMedia.REST.API.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Lists an asynchronous report.
+        /// Gets a single asynchronous report.
         /// </summary>
         /// <remarks>
-        /// This endpoints lists metadata of a requested asynchronous report.
+        /// This endpoints shows information of a single requested asynchronous report.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -573,10 +577,10 @@ namespace MessageMedia.REST.API.Api
         System.Threading.Tasks.Task<AsyncReport> GetAsyncReportByIdAsync (Guid? reportId);
 
         /// <summary>
-        /// Lists an asynchronous report.
+        /// Gets a single asynchronous report.
         /// </summary>
         /// <remarks>
-        /// This endpoints lists metadata of a requested asynchronous report.
+        /// This endpoints shows information of a single requested asynchronous report.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -604,24 +608,28 @@ namespace MessageMedia.REST.API.Api
         /// <returns>Task of ApiResponse (System.IO.Stream)</returns>
         System.Threading.Tasks.Task<ApiResponse<System.IO.Stream>> GetAsyncReportDataByIdAsyncWithHttpInfo (Guid? reportId);
         /// <summary>
-        /// Gets a single asynchronous report.
+        /// Lists asynchronous reports.
         /// </summary>
         /// <remarks>
-        /// This endpoint lists metadata about requested async reports.
+        /// This endpoint lists all the requested asynchronous reports.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        System.Threading.Tasks.Task<InlineResponse200> GetAsyncReportsAsync ();
+        System.Threading.Tasks.Task<InlineResponse200> GetAsyncReportsAsync (int? page = null, int? pageSize = null);
 
         /// <summary>
-        /// Gets a single asynchronous report.
+        /// Lists asynchronous reports.
         /// </summary>
         /// <remarks>
-        /// This endpoint lists metadata about requested async reports.
+        /// This endpoint lists all the requested asynchronous reports.
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAsyncReportsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAsyncReportsAsyncWithHttpInfo (int? page = null, int? pageSize = null);
         /// <summary>
         /// Returns a list of delivery reports
         /// </summary>
@@ -1198,7 +1206,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Lists an asynchronous report. This endpoints lists metadata of a requested asynchronous report.
+        /// Gets a single asynchronous report. This endpoints shows information of a single requested asynchronous report.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -1210,7 +1218,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Lists an asynchronous report. This endpoints lists metadata of a requested asynchronous report.
+        /// Gets a single asynchronous report. This endpoints shows information of a single requested asynchronous report.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -1276,7 +1284,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Lists an asynchronous report. This endpoints lists metadata of a requested asynchronous report.
+        /// Gets a single asynchronous report. This endpoints shows information of a single requested asynchronous report.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -1289,7 +1297,7 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Lists an asynchronous report. This endpoints lists metadata of a requested asynchronous report.
+        /// Gets a single asynchronous report. This endpoints shows information of a single requested asynchronous report.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="reportId">Unique ID of the async report</param>
@@ -1510,22 +1518,26 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Gets a single asynchronous report. This endpoint lists metadata about requested async reports.
+        /// Lists asynchronous reports. This endpoint lists all the requested asynchronous reports.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>InlineResponse200</returns>
-        public InlineResponse200 GetAsyncReports ()
+        public InlineResponse200 GetAsyncReports (int? page = null, int? pageSize = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = GetAsyncReportsWithHttpInfo();
+             ApiResponse<InlineResponse200> localVarResponse = GetAsyncReportsWithHttpInfo(page, pageSize);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Gets a single asynchronous report. This endpoint lists metadata about requested async reports.
+        /// Lists asynchronous reports. This endpoint lists all the requested asynchronous reports.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse200</returns>
-        public ApiResponse< InlineResponse200 > GetAsyncReportsWithHttpInfo ()
+        public ApiResponse< InlineResponse200 > GetAsyncReportsWithHttpInfo (int? page = null, int? pageSize = null)
         {
 
             var localVarPath = "/reporting/async_reports";
@@ -1553,6 +1565,8 @@ namespace MessageMedia.REST.API.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
+            if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
 
             // authentication (basic) required
             // http basic authentication required
@@ -1582,23 +1596,27 @@ namespace MessageMedia.REST.API.Api
         }
 
         /// <summary>
-        /// Gets a single asynchronous report. This endpoint lists metadata about requested async reports.
+        /// Lists asynchronous reports. This endpoint lists all the requested asynchronous reports.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>Task of InlineResponse200</returns>
-        public async System.Threading.Tasks.Task<InlineResponse200> GetAsyncReportsAsync ()
+        public async System.Threading.Tasks.Task<InlineResponse200> GetAsyncReportsAsync (int? page = null, int? pageSize = null)
         {
-             ApiResponse<InlineResponse200> localVarResponse = await GetAsyncReportsAsyncWithHttpInfo();
+             ApiResponse<InlineResponse200> localVarResponse = await GetAsyncReportsAsyncWithHttpInfo(page, pageSize);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Gets a single asynchronous report. This endpoint lists metadata about requested async reports.
+        /// Lists asynchronous reports. This endpoint lists all the requested asynchronous reports.
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
+        /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAsyncReportsAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetAsyncReportsAsyncWithHttpInfo (int? page = null, int? pageSize = null)
         {
 
             var localVarPath = "/reporting/async_reports";
@@ -1626,6 +1644,8 @@ namespace MessageMedia.REST.API.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
+            if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
 
             // authentication (basic) required
             // http basic authentication required

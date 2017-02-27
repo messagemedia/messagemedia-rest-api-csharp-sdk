@@ -4,9 +4,9 @@ All URIs are relative to *https://api.messagemedia.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAsyncReportById**](MessagingReportsApi.md#getasyncreportbyid) | **GET** /reporting/async_reports/{report_id} | Lists an asynchronous report.
+[**GetAsyncReportById**](MessagingReportsApi.md#getasyncreportbyid) | **GET** /reporting/async_reports/{report_id} | Gets a single asynchronous report.
 [**GetAsyncReportDataById**](MessagingReportsApi.md#getasyncreportdatabyid) | **GET** /reporting/async_reports/{report_id}/data | Gets the data of an asynchronous report.
-[**GetAsyncReports**](MessagingReportsApi.md#getasyncreports) | **GET** /reporting/async_reports | Gets a single asynchronous report.
+[**GetAsyncReports**](MessagingReportsApi.md#getasyncreports) | **GET** /reporting/async_reports | Lists asynchronous reports.
 [**GetDeliveryReportsDetail**](MessagingReportsApi.md#getdeliveryreportsdetail) | **GET** /reporting/delivery_reports/detail | Returns a list of delivery reports
 [**GetDeliveryReportsSummary**](MessagingReportsApi.md#getdeliveryreportssummary) | **GET** /reporting/delivery_reports/summary | Returns a summarised report of delivery reports
 [**GetMetadataKeys**](MessagingReportsApi.md#getmetadatakeys) | **GET** /reporting/{messageType}/metadata/keys | Returns a list of metadata keys
@@ -26,9 +26,9 @@ Method | HTTP request | Description
 # **GetAsyncReportById**
 > AsyncReport GetAsyncReportById (Guid? reportId)
 
-Lists an asynchronous report.
+Gets a single asynchronous report.
 
-This endpoints lists metadata of a requested asynchronous report.
+This endpoints shows information of a single requested asynchronous report.
 
 ### Example
 ```csharp
@@ -54,7 +54,7 @@ namespace Example
 
             try
             {
-                // Lists an asynchronous report.
+                // Gets a single asynchronous report.
                 AsyncReport result = apiInstance.GetAsyncReportById(reportId);
                 Debug.WriteLine(result);
             }
@@ -156,11 +156,11 @@ Name | Type | Description  | Notes
 
 <a name="getasyncreports"></a>
 # **GetAsyncReports**
-> InlineResponse200 GetAsyncReports ()
+> InlineResponse200 GetAsyncReports (int? page = null, int? pageSize = null)
 
-Gets a single asynchronous report.
+Lists asynchronous reports.
 
-This endpoint lists metadata about requested async reports.
+This endpoint lists all the requested asynchronous reports.
 
 ### Example
 ```csharp
@@ -182,11 +182,13 @@ namespace Example
             Configuration.Default.Password = "YOUR_PASSWORD";
 
             var apiInstance = new MessagingReportsApi();
+            var page = 56;  // int? | Page number for paging through paginated result sets. (optional) 
+            var pageSize = 56;  // int? | Number of results to return in a page for paginated result sets. (optional) 
 
             try
             {
-                // Gets a single asynchronous report.
-                InlineResponse200 result = apiInstance.GetAsyncReports();
+                // Lists asynchronous reports.
+                InlineResponse200 result = apiInstance.GetAsyncReports(page, pageSize);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -199,7 +201,11 @@ namespace Example
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int?**| Page number for paging through paginated result sets. | [optional] 
+ **pageSize** | **int?**| Number of results to return in a page for paginated result sets. | [optional] 
 
 ### Return type
 
