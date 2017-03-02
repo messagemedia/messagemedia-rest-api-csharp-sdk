@@ -162,7 +162,8 @@ namespace MessageMedia.REST.API.Model
         /// <param name="SourceAddress">SourceAddress.</param>
         /// <param name="DeliveryReport">DeliveryReport.</param>
         /// <param name="StatusCode">StatusCode.</param>
-        public AsyncDeliverySentMessagesRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, GroupByEnum? GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryReportBody DeliveryReport = null, StatusCodeBody StatusCode = null)
+        /// <param name="DeliveryOptions">DeliveryOptions.</param>
+        public AsyncDeliverySentMessagesRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, GroupByEnum? GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryReportBody DeliveryReport = null, StatusCodeBody StatusCode = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.SummaryBy = SummaryBy;
             this.SummaryField = SummaryField;
@@ -180,6 +181,7 @@ namespace MessageMedia.REST.API.Model
             this.SourceAddress = SourceAddress;
             this.DeliveryReport = DeliveryReport;
             this.StatusCode = StatusCode;
+            this.DeliveryOptions = DeliveryOptions;
         }
         
         /// <summary>
@@ -258,6 +260,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="status_code", EmitDefaultValue=false)]
         public StatusCodeBody StatusCode { get; set; }
         /// <summary>
+        /// Gets or Sets DeliveryOptions
+        /// </summary>
+        [DataMember(Name="delivery_options", EmitDefaultValue=false)]
+        public DeliveryOptionsBody DeliveryOptions { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -281,6 +288,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
             sb.Append("  DeliveryReport: ").Append(DeliveryReport).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  DeliveryOptions: ").Append(DeliveryOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -396,6 +404,11 @@ namespace MessageMedia.REST.API.Model
                     this.StatusCode == other.StatusCode ||
                     this.StatusCode != null &&
                     this.StatusCode.Equals(other.StatusCode)
+                ) && 
+                (
+                    this.DeliveryOptions == other.DeliveryOptions ||
+                    this.DeliveryOptions != null &&
+                    this.DeliveryOptions.Equals(other.DeliveryOptions)
                 );
         }
 
@@ -442,6 +455,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.DeliveryReport.GetHashCode();
                 if (this.StatusCode != null)
                     hash = hash * 59 + this.StatusCode.GetHashCode();
+                if (this.DeliveryOptions != null)
+                    hash = hash * 59 + this.DeliveryOptions.GetHashCode();
                 return hash;
             }
         }

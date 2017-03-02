@@ -186,6 +186,14 @@ namespace MessageMedia.REST.API.Test
         {
             // TODO unit test for the property 'Action'
         }
+        /// <summary>
+        /// Test the property 'DeliveryOptions'
+        /// </summary>
+        [Test]
+        public void DeliveryOptionsTest()
+        {
+            // TODO unit test for the property 'DeliveryOptions'
+        }
 
     }
 

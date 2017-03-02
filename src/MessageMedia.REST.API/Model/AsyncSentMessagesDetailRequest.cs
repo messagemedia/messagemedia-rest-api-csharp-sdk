@@ -144,7 +144,8 @@ namespace MessageMedia.REST.API.Model
         /// <param name="Status">Status.</param>
         /// <param name="StatusCode">StatusCode.</param>
         /// <param name="DeliveryReport">DeliveryReport.</param>
-        public AsyncSentMessagesDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, StatusBody Status = null, StatusCodeBody StatusCode = null, DeliveryReportBody DeliveryReport = null)
+        /// <param name="DeliveryOptions">DeliveryOptions.</param>
+        public AsyncSentMessagesDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, StatusBody Status = null, StatusCodeBody StatusCode = null, DeliveryReportBody DeliveryReport = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -162,6 +163,7 @@ namespace MessageMedia.REST.API.Model
             this.Status = Status;
             this.StatusCode = StatusCode;
             this.DeliveryReport = DeliveryReport;
+            this.DeliveryOptions = DeliveryOptions;
         }
         
         /// <summary>
@@ -240,6 +242,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="delivery_report", EmitDefaultValue=false)]
         public DeliveryReportBody DeliveryReport { get; set; }
         /// <summary>
+        /// Gets or Sets DeliveryOptions
+        /// </summary>
+        [DataMember(Name="delivery_options", EmitDefaultValue=false)]
+        public DeliveryOptionsBody DeliveryOptions { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -263,6 +270,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  DeliveryReport: ").Append(DeliveryReport).Append("\n");
+            sb.Append("  DeliveryOptions: ").Append(DeliveryOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -378,6 +386,11 @@ namespace MessageMedia.REST.API.Model
                     this.DeliveryReport == other.DeliveryReport ||
                     this.DeliveryReport != null &&
                     this.DeliveryReport.Equals(other.DeliveryReport)
+                ) && 
+                (
+                    this.DeliveryOptions == other.DeliveryOptions ||
+                    this.DeliveryOptions != null &&
+                    this.DeliveryOptions.Equals(other.DeliveryOptions)
                 );
         }
 
@@ -424,6 +437,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.StatusCode.GetHashCode();
                 if (this.DeliveryReport != null)
                     hash = hash * 59 + this.DeliveryReport.GetHashCode();
+                if (this.DeliveryOptions != null)
+                    hash = hash * 59 + this.DeliveryOptions.GetHashCode();
                 return hash;
             }
         }

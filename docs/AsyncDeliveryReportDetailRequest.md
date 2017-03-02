@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Status** | [**StatusBody**](StatusBody.md) |  | [optional] 
 **SourceAddressCountry** | [**SourceAddressCountryBody**](SourceAddressCountryBody.md) |  | [optional] 
 **SourceAddress** | [**SourceAddressBody**](SourceAddressBody.md) |  | [optional] 
+**DeliveryOptions** | [**DeliveryOptionsBody**](DeliveryOptionsBody.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,7 +5,7 @@ Australia's Leading Messaging Solutions for Business and Enterprise.
 
 - API version: 1.0.0
 - SDK version: 1.0.0
-- Build date: 2017-02-27T23:50:16.210Z
+- Build date: 2017-03-02T02:40:43.226Z
     For more information, please visit [https://www.messagemedia.com/contact-us](https://www.messagemedia.com/contact-us)
 
 ## Frameworks supported
@@ -118,6 +118,8 @@ Class | Method | HTTP request | Description
  - [Model.AsyncReport](docs/AsyncReport.md)
  - [Model.AsyncReportResponse](docs/AsyncReportResponse.md)
  - [Model.AsyncSentMessagesDetailRequest](docs/AsyncSentMessagesDetailRequest.md)
+ - [Model.DeliveryOptionsBody](docs/DeliveryOptionsBody.md)
+ - [Model.DeliveryOptionsBodyInner](docs/DeliveryOptionsBodyInner.md)
  - [Model.DeliveryReport](docs/DeliveryReport.md)
  - [Model.DeliveryReportBody](docs/DeliveryReportBody.md)
  - [Model.DeliveryReportId](docs/DeliveryReportId.md)

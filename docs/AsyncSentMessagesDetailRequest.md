@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Status** | [**StatusBody**](StatusBody.md) |  | [optional] 
 **StatusCode** | [**StatusCodeBody**](StatusCodeBody.md) |  | [optional] 
 **DeliveryReport** | [**DeliveryReportBody**](DeliveryReportBody.md) |  | [optional] 
+**DeliveryOptions** | [**DeliveryOptionsBody**](DeliveryOptionsBody.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

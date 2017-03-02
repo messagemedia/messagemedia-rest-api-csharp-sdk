@@ -125,7 +125,8 @@ namespace MessageMedia.REST.API.Model
         /// <param name="Status">Status.</param>
         /// <param name="SourceAddressCountry">SourceAddressCountry.</param>
         /// <param name="SourceAddress">SourceAddress.</param>
-        public AsyncDeliveryReportDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, StatusCodeBody StatusCode = null, StatusBody Status = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null)
+        /// <param name="DeliveryOptions">DeliveryOptions.</param>
+        public AsyncDeliveryReportDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, StatusCodeBody StatusCode = null, StatusBody Status = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -142,6 +143,7 @@ namespace MessageMedia.REST.API.Model
             this.Status = Status;
             this.SourceAddressCountry = SourceAddressCountry;
             this.SourceAddress = SourceAddress;
+            this.DeliveryOptions = DeliveryOptions;
         }
         
         /// <summary>
@@ -215,6 +217,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="source_address", EmitDefaultValue=false)]
         public SourceAddressBody SourceAddress { get; set; }
         /// <summary>
+        /// Gets or Sets DeliveryOptions
+        /// </summary>
+        [DataMember(Name="delivery_options", EmitDefaultValue=false)]
+        public DeliveryOptionsBody DeliveryOptions { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -237,6 +244,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  SourceAddressCountry: ").Append(SourceAddressCountry).Append("\n");
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
+            sb.Append("  DeliveryOptions: ").Append(DeliveryOptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -347,6 +355,11 @@ namespace MessageMedia.REST.API.Model
                     this.SourceAddress == other.SourceAddress ||
                     this.SourceAddress != null &&
                     this.SourceAddress.Equals(other.SourceAddress)
+                ) && 
+                (
+                    this.DeliveryOptions == other.DeliveryOptions ||
+                    this.DeliveryOptions != null &&
+                    this.DeliveryOptions.Equals(other.DeliveryOptions)
                 );
         }
 
@@ -391,6 +404,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.SourceAddressCountry.GetHashCode();
                 if (this.SourceAddress != null)
                     hash = hash * 59 + this.SourceAddress.GetHashCode();
+                if (this.DeliveryOptions != null)
+                    hash = hash * 59 + this.DeliveryOptions.GetHashCode();
                 return hash;
             }
         }
