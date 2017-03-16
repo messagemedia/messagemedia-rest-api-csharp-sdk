@@ -146,7 +146,13 @@ namespace MessageMedia.REST.API.Model
             /// Enum Scheduled for "scheduled"
             /// </summary>
             [EnumMember(Value = "scheduled")]
-            Scheduled
+            Scheduled,
+            
+            /// <summary>
+            /// Enum Failed for "failed"
+            /// </summary>
+            [EnumMember(Value = "failed")]
+            Failed
         }
 
         /// <summary>
