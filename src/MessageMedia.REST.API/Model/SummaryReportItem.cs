@@ -33,19 +33,39 @@ using Newtonsoft.Json.Converters;
 namespace MessageMedia.REST.API.Model
 {
     /// <summary>
-    /// Status code of the message
+    /// SummaryReportItem
     /// </summary>
     [DataContract]
-    public partial class MessageStatusCode :  IEquatable<MessageStatusCode>
+    public partial class SummaryReportItem :  IEquatable<SummaryReportItem>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MessageStatusCode" /> class.
+        /// Initializes a new instance of the <see cref="SummaryReportItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public MessageStatusCode()
+        /// <param name="Group">Group.</param>
+        /// <param name="Value">Value.</param>
+        /// <param name="Subgroups">Subgroups.</param>
+        public SummaryReportItem(string Group = null, int? Value = null, List<SummaryReportItem> Subgroups = null)
         {
+            this.Group = Group;
+            this.Value = Value;
+            this.Subgroups = Subgroups;
         }
         
+        /// <summary>
+        /// Gets or Sets Group
+        /// </summary>
+        [DataMember(Name="group", EmitDefaultValue=false)]
+        public string Group { get; set; }
+        /// <summary>
+        /// Gets or Sets Value
+        /// </summary>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public int? Value { get; set; }
+        /// <summary>
+        /// Gets or Sets Subgroups
+        /// </summary>
+        [DataMember(Name="subgroups", EmitDefaultValue=false)]
+        public List<SummaryReportItem> Subgroups { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -53,7 +73,10 @@ namespace MessageMedia.REST.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MessageStatusCode {\n");
+            sb.Append("class SummaryReportItem {\n");
+            sb.Append("  Group: ").Append(Group).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Subgroups: ").Append(Subgroups).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,21 +98,36 @@ namespace MessageMedia.REST.API.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MessageStatusCode);
+            return this.Equals(obj as SummaryReportItem);
         }
 
         /// <summary>
-        /// Returns true if MessageStatusCode instances are equal
+        /// Returns true if SummaryReportItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of MessageStatusCode to be compared</param>
+        /// <param name="other">Instance of SummaryReportItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MessageStatusCode other)
+        public bool Equals(SummaryReportItem other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Group == other.Group ||
+                    this.Group != null &&
+                    this.Group.Equals(other.Group)
+                ) && 
+                (
+                    this.Value == other.Value ||
+                    this.Value != null &&
+                    this.Value.Equals(other.Value)
+                ) && 
+                (
+                    this.Subgroups == other.Subgroups ||
+                    this.Subgroups != null &&
+                    this.Subgroups.SequenceEqual(other.Subgroups)
+                );
         }
 
         /// <summary>
@@ -103,6 +141,12 @@ namespace MessageMedia.REST.API.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Group != null)
+                    hash = hash * 59 + this.Group.GetHashCode();
+                if (this.Value != null)
+                    hash = hash * 59 + this.Value.GetHashCode();
+                if (this.Subgroups != null)
+                    hash = hash * 59 + this.Subgroups.GetHashCode();
                 return hash;
             }
         }

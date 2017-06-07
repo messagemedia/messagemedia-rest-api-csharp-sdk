@@ -33,9 +33,9 @@ using Newtonsoft.Json.Converters;
 namespace MessageMedia.REST.API.Model
 {
     /// <summary>
-    /// Filter results by message status.
+    /// Filter results by message status. Can't be combined with statuses.
     /// </summary>
-    /// <value>Filter results by message status.</value>
+    /// <value>Filter results by message status. Can't be combined with statuses.</value>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum StatusBody
     {

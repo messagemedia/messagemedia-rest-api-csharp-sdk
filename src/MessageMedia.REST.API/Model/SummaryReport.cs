@@ -43,7 +43,7 @@ namespace MessageMedia.REST.API.Model
         /// </summary>
         /// <param name="Properties">Properties.</param>
         /// <param name="Data">Data.</param>
-        public SummaryReport(SummaryReportProperties Properties = null, List<SummaryReportData> Data = null)
+        public SummaryReport(SummaryReportProperties Properties = null, List<SummaryReportItem> Data = null)
         {
             this.Properties = Properties;
             this.Data = Data;
@@ -58,7 +58,7 @@ namespace MessageMedia.REST.API.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<SummaryReportData> Data { get; set; }
+        public List<SummaryReportItem> Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

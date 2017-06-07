@@ -34,16 +34,16 @@ using System.Reflection;
 namespace MessageMedia.REST.API.Test
 {
     /// <summary>
-    ///  Class for testing MessageStatusCode
+    ///  Class for testing SummaryReportItem
     /// </summary>
     /// <remarks>
     /// Please update the test case below to test the model.
     /// </remarks>
     [TestFixture]
-    public class MessageStatusCodeTests
+    public class SummaryReportItemTests
     {
-        // TODO uncomment below to declare an instance variable for MessageStatusCode
-        //private MessageStatusCode instance;
+        // TODO uncomment below to declare an instance variable for SummaryReportItem
+        //private SummaryReportItem instance;
 
         /// <summary>
         /// Setup before each test
@@ -51,8 +51,8 @@ namespace MessageMedia.REST.API.Test
         [SetUp]
         public void Init()
         {
-            // TODO uncomment below to create an instance of MessageStatusCode
-            //instance = new MessageStatusCode();
+            // TODO uncomment below to create an instance of SummaryReportItem
+            //instance = new SummaryReportItem();
         }
 
         /// <summary>
@@ -65,15 +65,39 @@ namespace MessageMedia.REST.API.Test
         }
 
         /// <summary>
-        /// Test an instance of MessageStatusCode
+        /// Test an instance of SummaryReportItem
         /// </summary>
         [Test]
-        public void MessageStatusCodeInstanceTest()
+        public void SummaryReportItemInstanceTest()
         {
-            // TODO uncomment below to test "IsInstanceOfType" MessageStatusCode
-            //Assert.IsInstanceOfType<MessageStatusCode> (instance, "variable 'instance' is a MessageStatusCode");
+            // TODO uncomment below to test "IsInstanceOfType" SummaryReportItem
+            //Assert.IsInstanceOfType<SummaryReportItem> (instance, "variable 'instance' is a SummaryReportItem");
         }
 
+        /// <summary>
+        /// Test the property 'Group'
+        /// </summary>
+        [Test]
+        public void GroupTest()
+        {
+            // TODO unit test for the property 'Group'
+        }
+        /// <summary>
+        /// Test the property 'Value'
+        /// </summary>
+        [Test]
+        public void ValueTest()
+        {
+            // TODO unit test for the property 'Value'
+        }
+        /// <summary>
+        /// Test the property 'Subgroups'
+        /// </summary>
+        [Test]
+        public void SubgroupsTest()
+        {
+            // TODO unit test for the property 'Subgroups'
+        }
 
     }
 

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **MetadataValue** | [**MetadataValueBody**](MetadataValueBody.md) |  | [optional] 
 **StatusCode** | [**StatusCodeBody**](StatusCodeBody.md) |  | [optional] 
 **Status** | [**StatusBody**](StatusBody.md) |  | [optional] 
+**Statuses** | [**StatusesBody**](StatusesBody.md) |  | [optional] 
 **SourceAddressCountry** | [**SourceAddressCountryBody**](SourceAddressCountryBody.md) |  | [optional] 
 **SourceAddress** | [**SourceAddressBody**](SourceAddressBody.md) |  | [optional] 
 **DeliveryOptions** | [**DeliveryOptionsBody**](DeliveryOptionsBody.md) |  | [optional] 

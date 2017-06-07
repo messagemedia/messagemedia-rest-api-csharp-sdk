@@ -179,6 +179,14 @@ namespace MessageMedia.REST.API.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
+        /// Test the property 'Statuses'
+        /// </summary>
+        [Test]
+        public void StatusesTest()
+        {
+            // TODO unit test for the property 'Statuses'
+        }
+        /// <summary>
         /// Test the property 'SourceAddressCountry'
         /// </summary>
         [Test]

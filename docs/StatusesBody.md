@@ -1,4 +1,4 @@
-# MessageMedia.REST.API.Model.MessageStatusCode
+# MessageMedia.REST.API.Model.StatusesBody
 ## Properties
 
 Name | Type | Description | Notes

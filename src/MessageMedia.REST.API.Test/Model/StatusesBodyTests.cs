@@ -34,16 +34,16 @@ using System.Reflection;
 namespace MessageMedia.REST.API.Test
 {
     /// <summary>
-    ///  Class for testing SummaryReportData
+    ///  Class for testing StatusesBody
     /// </summary>
     /// <remarks>
     /// Please update the test case below to test the model.
     /// </remarks>
     [TestFixture]
-    public class SummaryReportDataTests
+    public class StatusesBodyTests
     {
-        // TODO uncomment below to declare an instance variable for SummaryReportData
-        //private SummaryReportData instance;
+        // TODO uncomment below to declare an instance variable for StatusesBody
+        //private StatusesBody instance;
 
         /// <summary>
         /// Setup before each test
@@ -51,8 +51,8 @@ namespace MessageMedia.REST.API.Test
         [SetUp]
         public void Init()
         {
-            // TODO uncomment below to create an instance of SummaryReportData
-            //instance = new SummaryReportData();
+            // TODO uncomment below to create an instance of StatusesBody
+            //instance = new StatusesBody();
         }
 
         /// <summary>
@@ -65,31 +65,15 @@ namespace MessageMedia.REST.API.Test
         }
 
         /// <summary>
-        /// Test an instance of SummaryReportData
+        /// Test an instance of StatusesBody
         /// </summary>
         [Test]
-        public void SummaryReportDataInstanceTest()
+        public void StatusesBodyInstanceTest()
         {
-            // TODO uncomment below to test "IsInstanceOfType" SummaryReportData
-            //Assert.IsInstanceOfType<SummaryReportData> (instance, "variable 'instance' is a SummaryReportData");
+            // TODO uncomment below to test "IsInstanceOfType" StatusesBody
+            //Assert.IsInstanceOfType<StatusesBody> (instance, "variable 'instance' is a StatusesBody");
         }
 
-        /// <summary>
-        /// Test the property 'Group'
-        /// </summary>
-        [Test]
-        public void GroupTest()
-        {
-            // TODO unit test for the property 'Group'
-        }
-        /// <summary>
-        /// Test the property 'Value'
-        /// </summary>
-        [Test]
-        public void ValueTest()
-        {
-            // TODO unit test for the property 'Value'
-        }
 
     }
 

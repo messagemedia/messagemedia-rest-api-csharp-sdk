@@ -137,6 +137,12 @@ namespace MessageMedia.REST.API.Model
             Queued,
             
             /// <summary>
+            /// Enum Processed for "processed"
+            /// </summary>
+            [EnumMember(Value = "processed")]
+            Processed,
+            
+            /// <summary>
             /// Enum Cancelled for "cancelled"
             /// </summary>
             [EnumMember(Value = "cancelled")]

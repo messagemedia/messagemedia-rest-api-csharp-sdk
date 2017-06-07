@@ -159,9 +159,9 @@ namespace MessageMedia.REST.API.Model
         /// <param name="SourceAddress">Address this delivery report was received from, the destination address of the sent message that this delivery report is in response to.</param>
         /// <param name="SourceAddressCountry">Country associated with the source address.</param>
         /// <param name="Status">Status of the message.</param>
-        /// <param name="StatusCode">StatusCode.</param>
+        /// <param name="StatusCode">Status code of the message.</param>
         /// <param name="Timestamp">Date time at which this delivery report was received.</param>
-        public DeliveryReport(string Account = null, string DestinationAddress = null, string DestinationAddressCountry = null, FormatEnum? Format = null, Guid? Id = null, Guid? InResponseTo = null, Object Metadata = null, string SourceAddress = null, string SourceAddressCountry = null, StatusEnum? Status = null, MessageStatusCode StatusCode = null, DateTime? Timestamp = null)
+        public DeliveryReport(string Account = null, string DestinationAddress = null, string DestinationAddressCountry = null, FormatEnum? Format = null, Guid? Id = null, Guid? InResponseTo = null, Object Metadata = null, string SourceAddress = null, string SourceAddressCountry = null, StatusEnum? Status = null, string StatusCode = null, DateTime? Timestamp = null)
         {
             this.Account = Account;
             this.DestinationAddress = DestinationAddress;
@@ -226,10 +226,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="source_address_country", EmitDefaultValue=false)]
         public string SourceAddressCountry { get; set; }
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// Status code of the message
         /// </summary>
+        /// <value>Status code of the message</value>
         [DataMember(Name="status_code", EmitDefaultValue=false)]
-        public MessageStatusCode StatusCode { get; set; }
+        public string StatusCode { get; set; }
         /// <summary>
         /// Date time at which this delivery report was received
         /// </summary>

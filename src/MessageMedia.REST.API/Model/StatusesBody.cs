@@ -33,32 +33,19 @@ using Newtonsoft.Json.Converters;
 namespace MessageMedia.REST.API.Model
 {
     /// <summary>
-    /// SummaryReportData
+    /// Filter results by message statuses. Can&#39;t be combined with status.
     /// </summary>
     [DataContract]
-    public partial class SummaryReportData :  IEquatable<SummaryReportData>
+    public partial class StatusesBody : List<StatusBody>,  IEquatable<StatusesBody>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SummaryReportData" /> class.
+        /// Initializes a new instance of the <see cref="StatusesBody" /> class.
         /// </summary>
-        /// <param name="Group">Group.</param>
-        /// <param name="Value">Value.</param>
-        public SummaryReportData(string Group = null, int? Value = null)
+        [JsonConstructorAttribute]
+        public StatusesBody()
         {
-            this.Group = Group;
-            this.Value = Value;
         }
         
-        /// <summary>
-        /// Gets or Sets Group
-        /// </summary>
-        [DataMember(Name="group", EmitDefaultValue=false)]
-        public string Group { get; set; }
-        /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public int? Value { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -66,9 +53,7 @@ namespace MessageMedia.REST.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SummaryReportData {\n");
-            sb.Append("  Group: ").Append(Group).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class StatusesBody {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +62,7 @@ namespace MessageMedia.REST.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public  new string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -90,31 +75,21 @@ namespace MessageMedia.REST.API.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SummaryReportData);
+            return this.Equals(obj as StatusesBody);
         }
 
         /// <summary>
-        /// Returns true if SummaryReportData instances are equal
+        /// Returns true if StatusesBody instances are equal
         /// </summary>
-        /// <param name="other">Instance of SummaryReportData to be compared</param>
+        /// <param name="other">Instance of StatusesBody to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SummaryReportData other)
+        public bool Equals(StatusesBody other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return 
-                (
-                    this.Group == other.Group ||
-                    this.Group != null &&
-                    this.Group.Equals(other.Group)
-                ) && 
-                (
-                    this.Value == other.Value ||
-                    this.Value != null &&
-                    this.Value.Equals(other.Value)
-                );
+            return false;
         }
 
         /// <summary>
@@ -128,10 +103,6 @@ namespace MessageMedia.REST.API.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Group != null)
-                    hash = hash * 59 + this.Group.GetHashCode();
-                if (this.Value != null)
-                    hash = hash * 59 + this.Value.GetHashCode();
                 return hash;
             }
         }

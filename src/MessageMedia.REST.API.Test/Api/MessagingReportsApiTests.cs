@@ -128,6 +128,7 @@ namespace MessageMedia.REST.API.Test
             //string metadataValue = null;
             //string statusCode = null;
             //string status = null;
+            //List<string> statuses = null;
             //int? page = null;
             //int? pageSize = null;
             //string sortBy = null;
@@ -135,7 +136,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetDeliveryReportsDetail(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetDeliveryReportsDetail(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<DeliveryReports> (response, "response is DeliveryReports");
         }
         
@@ -147,7 +148,7 @@ namespace MessageMedia.REST.API.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string endDate = null;
-            //string groupBy = null;
+            //List<string> groupBy = null;
             //string startDate = null;
             //string accounts = null;
             //string destinationAddressCountry = null;
@@ -157,12 +158,13 @@ namespace MessageMedia.REST.API.Test
             //string metadataValue = null;
             //string statusCode = null;
             //string status = null;
+            //List<string> statuses = null;
             //string summaryBy = null;
             //string summaryField = null;
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetDeliveryReportsSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetDeliveryReportsSummary(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SummaryReport> (response, "response is SummaryReport");
         }
         
@@ -217,7 +219,7 @@ namespace MessageMedia.REST.API.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string endDate = null;
-            //string groupBy = null;
+            //List<string> groupBy = null;
             //string startDate = null;
             //string accounts = null;
             //string destinationAddressCountry = null;
@@ -252,6 +254,7 @@ namespace MessageMedia.REST.API.Test
             //string metadataValue = null;
             //string statusCode = null;
             //string status = null;
+            //List<string> statuses = null;
             //int? page = null;
             //int? pageSize = null;
             //string sortBy = null;
@@ -259,7 +262,7 @@ namespace MessageMedia.REST.API.Test
             //string sourceAddressCountry = null;
             //string sourceAddress = null;
             //string timezone = null;
-            //var response = instance.GetSentMessagesDetail(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+            //var response = instance.GetSentMessagesDetail(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
             //Assert.IsInstanceOf<SentMessages> (response, "response is SentMessages");
         }
         
@@ -271,7 +274,7 @@ namespace MessageMedia.REST.API.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string endDate = null;
-            //string groupBy = null;
+            //List<string> groupBy = null;
             //string startDate = null;
             //string accounts = null;
             //bool? deliveryReport = null;

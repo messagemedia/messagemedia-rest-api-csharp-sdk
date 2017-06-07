@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SummaryBy** | [**SummaryByBody**](SummaryByBody.md) |  | [optional] 
 **SummaryField** | [**SummaryFieldBody**](SummaryFieldBody.md) |  | [optional] 
-**GroupBy** | **string** | Field to group results set by | [optional] 
+**GroupBy** | **List&lt;string&gt;** | List of fields to group results set by | [optional] 
 **StartDate** | [**StartDateBody**](StartDateBody.md) |  | [optional] 
 **EndDate** | [**EndDateBody**](EndDateBody.md) |  | [optional] 
 **Timezone** | [**TimezoneBody**](TimezoneBody.md) |  | [optional] 

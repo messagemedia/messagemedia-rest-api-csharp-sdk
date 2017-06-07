@@ -116,7 +116,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -125,7 +126,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>DeliveryReports</returns>
-        DeliveryReports GetDeliveryReportsDetail (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        DeliveryReports GetDeliveryReportsDetail (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a list of delivery reports
@@ -143,7 +144,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -152,7 +154,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of DeliveryReports</returns>
-        ApiResponse<DeliveryReports> GetDeliveryReportsDetailWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        ApiResponse<DeliveryReports> GetDeliveryReportsDetailWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a summarised report of delivery reports
         /// </summary>
@@ -161,7 +163,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -170,14 +172,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        SummaryReport GetDeliveryReportsSummary (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        SummaryReport GetDeliveryReportsSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of delivery reports
@@ -187,7 +190,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -196,14 +199,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        ApiResponse<SummaryReport> GetDeliveryReportsSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        ApiResponse<SummaryReport> GetDeliveryReportsSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a list of metadata keys
         /// </summary>
@@ -292,7 +296,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -306,7 +310,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        SummaryReport GetReceivedMessagesSummary (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        SummaryReport GetReceivedMessagesSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of messages received
@@ -316,7 +320,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -330,7 +334,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        ApiResponse<SummaryReport> GetReceivedMessagesSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        ApiResponse<SummaryReport> GetReceivedMessagesSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a list of message sent
         /// </summary>
@@ -348,7 +352,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -357,7 +362,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SentMessages</returns>
-        SentMessages GetSentMessagesDetail (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        SentMessages GetSentMessagesDetail (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a list of message sent
@@ -376,7 +381,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -385,7 +391,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SentMessages</returns>
-        ApiResponse<SentMessages> GetSentMessagesDetailWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        ApiResponse<SentMessages> GetSentMessagesDetailWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a summarised report of messages sent
         /// </summary>
@@ -394,7 +400,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -410,7 +416,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        SummaryReport GetSentMessagesSummary (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        SummaryReport GetSentMessagesSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of messages sent
@@ -420,7 +426,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -436,7 +442,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        ApiResponse<SummaryReport> GetSentMessagesSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        ApiResponse<SummaryReport> GetSentMessagesSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Submits a request to generate an async detail report
         /// </summary>
@@ -646,7 +652,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -655,7 +662,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of DeliveryReports</returns>
-        System.Threading.Tasks.Task<DeliveryReports> GetDeliveryReportsDetailAsync (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<DeliveryReports> GetDeliveryReportsDetailAsync (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a list of delivery reports
@@ -673,7 +680,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -682,7 +690,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (DeliveryReports)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeliveryReports>> GetDeliveryReportsDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<ApiResponse<DeliveryReports>> GetDeliveryReportsDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a summarised report of delivery reports
         /// </summary>
@@ -691,7 +699,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -700,14 +708,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        System.Threading.Tasks.Task<SummaryReport> GetDeliveryReportsSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<SummaryReport> GetDeliveryReportsSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of delivery reports
@@ -717,7 +726,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -726,14 +735,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetDeliveryReportsSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetDeliveryReportsSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a list of metadata keys
         /// </summary>
@@ -822,7 +832,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -836,7 +846,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        System.Threading.Tasks.Task<SummaryReport> GetReceivedMessagesSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<SummaryReport> GetReceivedMessagesSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of messages received
@@ -846,7 +856,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -860,7 +870,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetReceivedMessagesSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetReceivedMessagesSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a list of message sent
         /// </summary>
@@ -878,7 +888,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -887,7 +898,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SentMessages</returns>
-        System.Threading.Tasks.Task<SentMessages> GetSentMessagesDetailAsync (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<SentMessages> GetSentMessagesDetailAsync (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a list of message sent
@@ -906,7 +917,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -915,7 +927,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SentMessages)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SentMessages>> GetSentMessagesDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<ApiResponse<SentMessages>> GetSentMessagesDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Returns a summarised report of messages sent
         /// </summary>
@@ -924,7 +936,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -940,7 +952,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        System.Threading.Tasks.Task<SummaryReport> GetSentMessagesSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<SummaryReport> GetSentMessagesSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
 
         /// <summary>
         /// Returns a summarised report of messages sent
@@ -950,7 +962,7 @@ namespace MessageMedia.REST.API.Api
         /// </remarks>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -966,7 +978,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetSentMessagesSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
+        System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetSentMessagesSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null);
         /// <summary>
         /// Submits a request to generate an async detail report
         /// </summary>
@@ -1686,7 +1698,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -1695,9 +1708,9 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>DeliveryReports</returns>
-        public DeliveryReports GetDeliveryReportsDetail (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public DeliveryReports GetDeliveryReportsDetail (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<DeliveryReports> localVarResponse = GetDeliveryReportsDetailWithHttpInfo(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<DeliveryReports> localVarResponse = GetDeliveryReportsDetailWithHttpInfo(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
         }
 
@@ -1714,7 +1727,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -1723,7 +1737,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of DeliveryReports</returns>
-        public ApiResponse< DeliveryReports > GetDeliveryReportsDetailWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public ApiResponse< DeliveryReports > GetDeliveryReportsDetailWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -1766,6 +1780,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
             if (sortBy != null) localVarQueryParams.Add("sort_by", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
@@ -1815,7 +1830,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -1824,9 +1840,9 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of DeliveryReports</returns>
-        public async System.Threading.Tasks.Task<DeliveryReports> GetDeliveryReportsDetailAsync (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<DeliveryReports> GetDeliveryReportsDetailAsync (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<DeliveryReports> localVarResponse = await GetDeliveryReportsDetailAsyncWithHttpInfo(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<DeliveryReports> localVarResponse = await GetDeliveryReportsDetailAsyncWithHttpInfo(endDate, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
 
         }
@@ -1844,7 +1860,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -1853,7 +1870,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (DeliveryReports)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<DeliveryReports>> GetDeliveryReportsDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<ApiResponse<DeliveryReports>> GetDeliveryReportsDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -1896,6 +1913,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
             if (sortBy != null) localVarQueryParams.Add("sort_by", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
@@ -1936,7 +1954,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -1945,16 +1963,17 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        public SummaryReport GetDeliveryReportsSummary (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public SummaryReport GetDeliveryReportsSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<SummaryReport> localVarResponse = GetDeliveryReportsSummaryWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<SummaryReport> localVarResponse = GetDeliveryReportsSummaryWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
         }
 
@@ -1963,7 +1982,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -1972,14 +1991,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        public ApiResponse< SummaryReport > GetDeliveryReportsSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public ApiResponse< SummaryReport > GetDeliveryReportsSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -2025,6 +2045,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (summaryBy != null) localVarQueryParams.Add("summary_by", Configuration.ApiClient.ParameterToString(summaryBy)); // query parameter
             if (summaryField != null) localVarQueryParams.Add("summary_field", Configuration.ApiClient.ParameterToString(summaryField)); // query parameter
             if (groupBy != null) localVarQueryParams.Add("group_by", Configuration.ApiClient.ParameterToString(groupBy)); // query parameter
@@ -2065,7 +2086,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2074,16 +2095,17 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        public async System.Threading.Tasks.Task<SummaryReport> GetDeliveryReportsSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<SummaryReport> GetDeliveryReportsSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<SummaryReport> localVarResponse = await GetDeliveryReportsSummaryAsyncWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<SummaryReport> localVarResponse = await GetDeliveryReportsSummaryAsyncWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
 
         }
@@ -2093,7 +2115,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2102,14 +2124,15 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="summaryBy">Function to apply when summarising results (optional)</param>
         /// <param name="summaryField">Field to summarise results by (optional)</param>
         /// <param name="sourceAddressCountry">Filter results by source address country. (optional)</param>
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetDeliveryReportsSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetDeliveryReportsSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -2155,6 +2178,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (summaryBy != null) localVarQueryParams.Add("summary_by", Configuration.ApiClient.ParameterToString(summaryBy)); // query parameter
             if (summaryField != null) localVarQueryParams.Add("summary_field", Configuration.ApiClient.ParameterToString(summaryField)); // query parameter
             if (groupBy != null) localVarQueryParams.Add("group_by", Configuration.ApiClient.ParameterToString(groupBy)); // query parameter
@@ -2638,7 +2662,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2652,7 +2676,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        public SummaryReport GetReceivedMessagesSummary (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public SummaryReport GetReceivedMessagesSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
              ApiResponse<SummaryReport> localVarResponse = GetReceivedMessagesSummaryWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
@@ -2663,7 +2687,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2677,7 +2701,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        public ApiResponse< SummaryReport > GetReceivedMessagesSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public ApiResponse< SummaryReport > GetReceivedMessagesSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -2761,7 +2785,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2775,7 +2799,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        public async System.Threading.Tasks.Task<SummaryReport> GetReceivedMessagesSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<SummaryReport> GetReceivedMessagesSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
              ApiResponse<SummaryReport> localVarResponse = await GetReceivedMessagesSummaryAsyncWithHttpInfo(endDate, groupBy, startDate, accounts, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, summaryBy, summaryField, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
@@ -2787,7 +2811,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="destinationAddressCountry">Filter results by destination address country. (optional)</param>
@@ -2801,7 +2825,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetReceivedMessagesSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetReceivedMessagesSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string summaryBy = null, string summaryField = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -2893,7 +2917,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -2902,9 +2927,9 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SentMessages</returns>
-        public SentMessages GetSentMessagesDetail (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public SentMessages GetSentMessagesDetail (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<SentMessages> localVarResponse = GetSentMessagesDetailWithHttpInfo(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<SentMessages> localVarResponse = GetSentMessagesDetailWithHttpInfo(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
         }
 
@@ -2922,7 +2947,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -2931,7 +2957,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SentMessages</returns>
-        public ApiResponse< SentMessages > GetSentMessagesDetailWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public ApiResponse< SentMessages > GetSentMessagesDetailWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -2975,6 +3001,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
             if (sortBy != null) localVarQueryParams.Add("sort_by", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
@@ -3025,7 +3052,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -3034,9 +3062,9 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SentMessages</returns>
-        public async System.Threading.Tasks.Task<SentMessages> GetSentMessagesDetailAsync (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<SentMessages> GetSentMessagesDetailAsync (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
-             ApiResponse<SentMessages> localVarResponse = await GetSentMessagesDetailAsyncWithHttpInfo(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
+             ApiResponse<SentMessages> localVarResponse = await GetSentMessagesDetailAsyncWithHttpInfo(endDate, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, messageFormat, metadataKey, metadataValue, statusCode, status, statuses, page, pageSize, sortBy, sortDirection, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
 
         }
@@ -3055,7 +3083,8 @@ namespace MessageMedia.REST.API.Api
         /// <param name="metadataKey">Filter results for messages that include a metadata key. (optional)</param>
         /// <param name="metadataValue">Filter results for messages that include a metadata key containing this value. If this parameter is provided, the metadata_key parameter must also be provided. (optional)</param>
         /// <param name="statusCode">Filter results by message status code. (optional)</param>
-        /// <param name="status">Filter results by message status. (optional)</param>
+        /// <param name="status">Filter results by message status. Can&#39;t be combined with statuses. (optional)</param>
+        /// <param name="statuses">Filter results by message status. Can&#39;t be combined with status. (optional)</param>
         /// <param name="page">Page number for paging through paginated result sets. (optional)</param>
         /// <param name="pageSize">Number of results to return in a page for paginated result sets. (optional)</param>
         /// <param name="sortBy">Field to sort results set by (optional)</param>
@@ -3064,7 +3093,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SentMessages)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SentMessages>> GetSentMessagesDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SentMessages>> GetSentMessagesDetailAsyncWithHttpInfo (string endDate, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string status = null, List<string> statuses = null, int? page = null, int? pageSize = null, string sortBy = null, string sortDirection = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -3108,6 +3137,7 @@ namespace MessageMedia.REST.API.Api
             if (metadataValue != null) localVarQueryParams.Add("metadata_value", Configuration.ApiClient.ParameterToString(metadataValue)); // query parameter
             if (statusCode != null) localVarQueryParams.Add("status_code", Configuration.ApiClient.ParameterToString(statusCode)); // query parameter
             if (status != null) localVarQueryParams.Add("status", Configuration.ApiClient.ParameterToString(status)); // query parameter
+            if (statuses != null) localVarQueryParams.Add("statuses", Configuration.ApiClient.ParameterToString(statuses)); // query parameter
             if (page != null) localVarQueryParams.Add("page", Configuration.ApiClient.ParameterToString(page)); // query parameter
             if (pageSize != null) localVarQueryParams.Add("page_size", Configuration.ApiClient.ParameterToString(pageSize)); // query parameter
             if (sortBy != null) localVarQueryParams.Add("sort_by", Configuration.ApiClient.ParameterToString(sortBy)); // query parameter
@@ -3148,7 +3178,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -3164,7 +3194,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>SummaryReport</returns>
-        public SummaryReport GetSentMessagesSummary (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public SummaryReport GetSentMessagesSummary (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
              ApiResponse<SummaryReport> localVarResponse = GetSentMessagesSummaryWithHttpInfo(endDate, groupBy, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
@@ -3175,7 +3205,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -3191,7 +3221,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>ApiResponse of SummaryReport</returns>
-        public ApiResponse< SummaryReport > GetSentMessagesSummaryWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public ApiResponse< SummaryReport > GetSentMessagesSummaryWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)
@@ -3277,7 +3307,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -3293,7 +3323,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of SummaryReport</returns>
-        public async System.Threading.Tasks.Task<SummaryReport> GetSentMessagesSummaryAsync (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<SummaryReport> GetSentMessagesSummaryAsync (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
              ApiResponse<SummaryReport> localVarResponse = await GetSentMessagesSummaryAsyncWithHttpInfo(endDate, groupBy, startDate, accounts, deliveryReport, destinationAddressCountry, destinationAddress, summaryBy, summaryField, messageFormat, metadataKey, metadataValue, statusCode, sourceAddressCountry, sourceAddress, timezone);
              return localVarResponse.Data;
@@ -3305,7 +3335,7 @@ namespace MessageMedia.REST.API.Api
         /// </summary>
         /// <exception cref="MessageMedia.REST.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="endDate">End date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
-        /// <param name="groupBy">Field to group results set by</param>
+        /// <param name="groupBy">List of fields to group results set by</param>
         /// <param name="startDate">Start date time for report window. By default, the timezone for this parameter will be taken from the account settings for the account associated with the credentials used to make the request, or the account included in the Account parameter. This can be overridden using the timezone parameter per request. The date must be in the format of \&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss\&quot;, e.g. \&quot;2017-02-10T13:30:00\&quot;.</param>
         /// <param name="accounts">Filter results by a specific account. By default results will be returned for the account associated with the authentication credentials and all sub accounts. (optional)</param>
         /// <param name="deliveryReport">Filter results by delivery report. (optional)</param>
@@ -3321,7 +3351,7 @@ namespace MessageMedia.REST.API.Api
         /// <param name="sourceAddress">Filter results by source address. (optional)</param>
         /// <param name="timezone">The timezone to use for the context of the request. If provided this will be used as the timezone for the start date and end date parameters, and all datetime fields returns in the response. The timezone should be provided as a IANA (Internet Assigned Numbers Authority) time zone database zone name, i.e. &#39;Australia/Melbourne&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (SummaryReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetSentMessagesSummaryAsyncWithHttpInfo (string endDate, string groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
+        public async System.Threading.Tasks.Task<ApiResponse<SummaryReport>> GetSentMessagesSummaryAsyncWithHttpInfo (string endDate, List<string> groupBy, string startDate, string accounts = null, bool? deliveryReport = null, string destinationAddressCountry = null, string destinationAddress = null, string summaryBy = null, string summaryField = null, string messageFormat = null, string metadataKey = null, string metadataValue = null, string statusCode = null, string sourceAddressCountry = null, string sourceAddress = null, string timezone = null)
         {
             // verify the required parameter 'endDate' is set
             if (endDate == null)

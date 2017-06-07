@@ -123,10 +123,11 @@ namespace MessageMedia.REST.API.Model
         /// <param name="MetadataValue">MetadataValue.</param>
         /// <param name="StatusCode">StatusCode.</param>
         /// <param name="Status">Status.</param>
+        /// <param name="Statuses">Statuses.</param>
         /// <param name="SourceAddressCountry">SourceAddressCountry.</param>
         /// <param name="SourceAddress">SourceAddress.</param>
         /// <param name="DeliveryOptions">DeliveryOptions.</param>
-        public AsyncDeliveryReportDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, StatusCodeBody StatusCode = null, StatusBody Status = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryOptionsBody DeliveryOptions = null)
+        public AsyncDeliveryReportDetailRequest(StartDateBody StartDate = null, EndDateBody EndDate = null, SortByEnum? SortBy = null, SortDirectionBody SortDirection = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, StatusCodeBody StatusCode = null, StatusBody Status = null, StatusesBody Statuses = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.StartDate = StartDate;
             this.EndDate = EndDate;
@@ -141,6 +142,7 @@ namespace MessageMedia.REST.API.Model
             this.MetadataValue = MetadataValue;
             this.StatusCode = StatusCode;
             this.Status = Status;
+            this.Statuses = Statuses;
             this.SourceAddressCountry = SourceAddressCountry;
             this.SourceAddress = SourceAddress;
             this.DeliveryOptions = DeliveryOptions;
@@ -207,6 +209,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusBody Status { get; set; }
         /// <summary>
+        /// Gets or Sets Statuses
+        /// </summary>
+        [DataMember(Name="statuses", EmitDefaultValue=false)]
+        public StatusesBody Statuses { get; set; }
+        /// <summary>
         /// Gets or Sets SourceAddressCountry
         /// </summary>
         [DataMember(Name="source_address_country", EmitDefaultValue=false)]
@@ -242,6 +249,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  MetadataValue: ").Append(MetadataValue).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Statuses: ").Append(Statuses).Append("\n");
             sb.Append("  SourceAddressCountry: ").Append(SourceAddressCountry).Append("\n");
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
             sb.Append("  DeliveryOptions: ").Append(DeliveryOptions).Append("\n");
@@ -347,6 +355,11 @@ namespace MessageMedia.REST.API.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
+                    this.Statuses == other.Statuses ||
+                    this.Statuses != null &&
+                    this.Statuses.Equals(other.Statuses)
+                ) && 
+                (
                     this.SourceAddressCountry == other.SourceAddressCountry ||
                     this.SourceAddressCountry != null &&
                     this.SourceAddressCountry.Equals(other.SourceAddressCountry)
@@ -400,6 +413,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.StatusCode.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Statuses != null)
+                    hash = hash * 59 + this.Statuses.GetHashCode();
                 if (this.SourceAddressCountry != null)
                     hash = hash * 59 + this.SourceAddressCountry.GetHashCode();
                 if (this.SourceAddress != null)

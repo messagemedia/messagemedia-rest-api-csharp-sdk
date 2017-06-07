@@ -38,10 +38,10 @@ namespace MessageMedia.REST.API.Model
     [DataContract]
     public partial class AsyncDeliverySentMessagesRequest :  IEquatable<AsyncDeliverySentMessagesRequest>
     {
+
         /// <summary>
-        /// Field to group results set by
+        /// Gets or Sets GroupBy
         /// </summary>
-        /// <value>Field to group results set by</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum GroupByEnum
         {
@@ -134,21 +134,27 @@ namespace MessageMedia.REST.API.Model
             /// Enum YEAR for "YEAR"
             /// </summary>
             [EnumMember(Value = "YEAR")]
-            YEAR
+            YEAR,
+            
+            /// <summary>
+            /// Enum ACCOUNT for "ACCOUNT"
+            /// </summary>
+            [EnumMember(Value = "ACCOUNT")]
+            ACCOUNT
         }
 
         /// <summary>
-        /// Field to group results set by
+        /// List of fields to group results set by
         /// </summary>
-        /// <value>Field to group results set by</value>
+        /// <value>List of fields to group results set by</value>
         [DataMember(Name="group_by", EmitDefaultValue=false)]
-        public GroupByEnum? GroupBy { get; set; }
+        public List<GroupByEnum> GroupBy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AsyncDeliverySentMessagesRequest" /> class.
         /// </summary>
         /// <param name="SummaryBy">SummaryBy.</param>
         /// <param name="SummaryField">SummaryField.</param>
-        /// <param name="GroupBy">Field to group results set by.</param>
+        /// <param name="GroupBy">List of fields to group results set by.</param>
         /// <param name="StartDate">StartDate.</param>
         /// <param name="EndDate">EndDate.</param>
         /// <param name="Timezone">Timezone.</param>
@@ -163,7 +169,7 @@ namespace MessageMedia.REST.API.Model
         /// <param name="DeliveryReport">DeliveryReport.</param>
         /// <param name="StatusCode">StatusCode.</param>
         /// <param name="DeliveryOptions">DeliveryOptions.</param>
-        public AsyncDeliverySentMessagesRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, GroupByEnum? GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryReportBody DeliveryReport = null, StatusCodeBody StatusCode = null, DeliveryOptionsBody DeliveryOptions = null)
+        public AsyncDeliverySentMessagesRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, List<GroupByEnum> GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, DeliveryReportBody DeliveryReport = null, StatusCodeBody StatusCode = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.SummaryBy = SummaryBy;
             this.SummaryField = SummaryField;
@@ -338,7 +344,7 @@ namespace MessageMedia.REST.API.Model
                 (
                     this.GroupBy == other.GroupBy ||
                     this.GroupBy != null &&
-                    this.GroupBy.Equals(other.GroupBy)
+                    this.GroupBy.SequenceEqual(other.GroupBy)
                 ) && 
                 (
                     this.StartDate == other.StartDate ||

@@ -38,10 +38,10 @@ namespace MessageMedia.REST.API.Model
     [DataContract]
     public partial class AsyncDeliveryReportsSummaryRequest :  IEquatable<AsyncDeliveryReportsSummaryRequest>
     {
+
         /// <summary>
-        /// Field to group results set by
+        /// Gets or Sets GroupBy
         /// </summary>
-        /// <value>Field to group results set by</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum GroupByEnum
         {
@@ -128,21 +128,27 @@ namespace MessageMedia.REST.API.Model
             /// Enum YEAR for "YEAR"
             /// </summary>
             [EnumMember(Value = "YEAR")]
-            YEAR
+            YEAR,
+            
+            /// <summary>
+            /// Enum ACCOUNT for "ACCOUNT"
+            /// </summary>
+            [EnumMember(Value = "ACCOUNT")]
+            ACCOUNT
         }
 
         /// <summary>
-        /// Field to group results set by
+        /// List of fields to group results set by
         /// </summary>
-        /// <value>Field to group results set by</value>
+        /// <value>List of fields to group results set by</value>
         [DataMember(Name="group_by", EmitDefaultValue=false)]
-        public GroupByEnum? GroupBy { get; set; }
+        public List<GroupByEnum> GroupBy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AsyncDeliveryReportsSummaryRequest" /> class.
         /// </summary>
         /// <param name="SummaryBy">SummaryBy.</param>
         /// <param name="SummaryField">SummaryField.</param>
-        /// <param name="GroupBy">Field to group results set by.</param>
+        /// <param name="GroupBy">List of fields to group results set by.</param>
         /// <param name="StartDate">StartDate.</param>
         /// <param name="EndDate">EndDate.</param>
         /// <param name="Timezone">Timezone.</param>
@@ -155,9 +161,10 @@ namespace MessageMedia.REST.API.Model
         /// <param name="SourceAddressCountry">SourceAddressCountry.</param>
         /// <param name="SourceAddress">SourceAddress.</param>
         /// <param name="Status">Status.</param>
+        /// <param name="Statuses">Statuses.</param>
         /// <param name="StatusCode">StatusCode.</param>
         /// <param name="DeliveryOptions">DeliveryOptions.</param>
-        public AsyncDeliveryReportsSummaryRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, GroupByEnum? GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, StatusBody Status = null, StatusCodeBody StatusCode = null, DeliveryOptionsBody DeliveryOptions = null)
+        public AsyncDeliveryReportsSummaryRequest(SummaryByBody SummaryBy = null, SummaryFieldBody SummaryField = null, List<GroupByEnum> GroupBy = null, StartDateBody StartDate = null, EndDateBody EndDate = null, TimezoneBody Timezone = null, AccountsBody Accounts = null, DestinationAddressCountryBody DestinationAddressCountry = null, DestinationAddressBody DestinationAddress = null, MessageFormatBody MessageFormat = null, MetadataKeyBody MetadataKey = null, MetadataValueBody MetadataValue = null, SourceAddressCountryBody SourceAddressCountry = null, SourceAddressBody SourceAddress = null, StatusBody Status = null, StatusesBody Statuses = null, StatusCodeBody StatusCode = null, DeliveryOptionsBody DeliveryOptions = null)
         {
             this.SummaryBy = SummaryBy;
             this.SummaryField = SummaryField;
@@ -174,6 +181,7 @@ namespace MessageMedia.REST.API.Model
             this.SourceAddressCountry = SourceAddressCountry;
             this.SourceAddress = SourceAddress;
             this.Status = Status;
+            this.Statuses = Statuses;
             this.StatusCode = StatusCode;
             this.DeliveryOptions = DeliveryOptions;
         }
@@ -249,6 +257,11 @@ namespace MessageMedia.REST.API.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusBody Status { get; set; }
         /// <summary>
+        /// Gets or Sets Statuses
+        /// </summary>
+        [DataMember(Name="statuses", EmitDefaultValue=false)]
+        public StatusesBody Statuses { get; set; }
+        /// <summary>
         /// Gets or Sets StatusCode
         /// </summary>
         [DataMember(Name="status_code", EmitDefaultValue=false)]
@@ -281,6 +294,7 @@ namespace MessageMedia.REST.API.Model
             sb.Append("  SourceAddressCountry: ").Append(SourceAddressCountry).Append("\n");
             sb.Append("  SourceAddress: ").Append(SourceAddress).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Statuses: ").Append(Statuses).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("  DeliveryOptions: ").Append(DeliveryOptions).Append("\n");
             sb.Append("}\n");
@@ -332,7 +346,7 @@ namespace MessageMedia.REST.API.Model
                 (
                     this.GroupBy == other.GroupBy ||
                     this.GroupBy != null &&
-                    this.GroupBy.Equals(other.GroupBy)
+                    this.GroupBy.SequenceEqual(other.GroupBy)
                 ) && 
                 (
                     this.StartDate == other.StartDate ||
@@ -395,6 +409,11 @@ namespace MessageMedia.REST.API.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
+                    this.Statuses == other.Statuses ||
+                    this.Statuses != null &&
+                    this.Statuses.Equals(other.Statuses)
+                ) && 
+                (
                     this.StatusCode == other.StatusCode ||
                     this.StatusCode != null &&
                     this.StatusCode.Equals(other.StatusCode)
@@ -447,6 +466,8 @@ namespace MessageMedia.REST.API.Model
                     hash = hash * 59 + this.SourceAddress.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Statuses != null)
+                    hash = hash * 59 + this.Statuses.GetHashCode();
                 if (this.StatusCode != null)
                     hash = hash * 59 + this.StatusCode.GetHashCode();
                 if (this.DeliveryOptions != null)

@@ -134,7 +134,13 @@ namespace MessageMedia.REST.API.Model
             /// Enum YEAR for "YEAR"
             /// </summary>
             [EnumMember(Value = "YEAR")]
-            YEAR
+            YEAR,
+            
+            /// <summary>
+            /// Enum ACCOUNT for "ACCOUNT"
+            /// </summary>
+            [EnumMember(Value = "ACCOUNT")]
+            ACCOUNT
         }
 
         /// <summary>
